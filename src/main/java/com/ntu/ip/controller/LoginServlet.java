@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.ntu.ip.model.User;
 import com.ntu.ip.service.LoginService;
 
 @WebServlet(urlPatterns = "/login.do")
@@ -27,15 +28,25 @@ public class LoginServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		String name = request.getParameter("name");
-		String password = request.getParameter("password");
+		String name = request.getParameter("email");
+		String password = request.getParameter("password1");
 		//InitService initService = new InitService();
 		//initService.createJobs();
-		boolean isUserValid = userValidationService.isUserValid(name, password);
+		User user = userValidationService.isUserValid(name, password);
 
-		if (isUserValid) {
-			request.getSession().setAttribute("name", name);
-			response.sendRedirect("/jobs.do");
+		if (user != null) {
+			if (user.getRole().equals("Candidate")) {
+				request.getSession().setAttribute("userRole", "candidate");
+				request.getSession().setAttribute("userId", user.getId());
+				request.getSession().setAttribute("User", user);
+				response.sendRedirect("/candidateUpdate.do");
+			} else {
+				request.getSession().setAttribute("userRole", "employer");
+				request.getSession().setAttribute("userId", user.getId());
+				request.getSession().setAttribute("User", user);
+				response.sendRedirect("/jobs.do");
+			}
+			
 		} else {
 			request.setAttribute("errorMessage", "Invalid Credentials!");
 			request.getRequestDispatcher("/WEB-INF/home.jsp").forward(

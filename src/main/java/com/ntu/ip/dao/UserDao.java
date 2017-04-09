@@ -13,7 +13,7 @@ import com.ntu.ip.model.User;
 public class UserDao extends AbstractDao<User> {
 
 	@SuppressWarnings("unchecked")
-	public boolean validuser(String userName, String pwd) {
+	public User validuser(String userName, String pwd) {
 		Transaction tx = null;
 		List<User> list =null;
 		Session session = getNewSession();
@@ -21,8 +21,13 @@ public class UserDao extends AbstractDao<User> {
 			tx = session.beginTransaction();
 			Criteria criteria = session.createCriteria(User.class);
 			criteria.add(Restrictions.eq("userName", userName)).add(Restrictions.eq("usrPwd", pwd));
+			criteria.setMaxResults(1);
 			list = criteria.list();
 			tx.commit();
+			if (list != null) {
+				User user = list.get(0);
+				return user;
+			}
 		} catch (HibernateException e) {
 			if (tx != null)
 				tx.rollback();
@@ -30,7 +35,7 @@ public class UserDao extends AbstractDao<User> {
 		} finally {
 			session.close();
 		}
-		return list != null && !list.isEmpty();
+		return null;
 	}
 
 }

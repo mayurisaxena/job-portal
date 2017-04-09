@@ -1,13 +1,14 @@
 package com.ntu.ip.service;
 
 import com.ntu.ip.dao.UserDao;
+import com.ntu.ip.model.User;
 
 public class LoginService {
 
 	private UserDao userDao = new UserDao();
 
 	
-	public boolean isUserValid(String user, String password) {
+	public User isUserValid(String user, String password) {
 		return userDao.validuser(user, password);
 	}
 	
