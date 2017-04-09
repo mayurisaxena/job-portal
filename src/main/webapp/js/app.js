@@ -1,6 +1,6 @@
-$(function(){
-	var jsonResult = '{"page":1,"total":"2","records":30,"rows":[  {    "jobId": 1,    "title": "Default Title",    "description": "Job0",    "skills": "JavaScala.Net",    "postedDate": "2017-04-09",    "employer": "pandanC"  },  {    "jobId": 2,    "title": "Default Title",    "description": "Job1",    "skills":"JavaScala.Net","postedDate": "2017-04-09",    "employer": "pandanC"  },  {    "jobId": 3,    "title": "Default Title",    "description": "Job2",    "skills": "JavaScala.Net",    "postedDate": "2017-04-09",    "employer": "pandanC"  },  {    "jobId": 4,    "title": "Default Title",    "description": "Job3",    "skills": "JavaScala.Net",    "postedDate": "2017-04-09",    "employer": "pandanC"  },  {    "jobId": 5,    "title": "Default Title",    "description": "Job4",    "skills": "JavaScala.Net",    "postedDate": "2017-04-09",    "employer": "pandanC"  },  {    "jobId": 6,    "title": "Default Title",    "description": "Job5",    "skills": "JavaScala.Net",    "postedDate": "2017-04-09",    "employer": "pandanC"  },  {    "jobId": 7,    "title": "Default Title",    "description": "Job6",    "skills": "JavaScala.Net",    "postedDate": "2017-04-09",    "employer": "pandanC"  }]}';
-	var searchResults = JSON.parse(jsonResult);
+
+function setSearchResult(jsonResult){
+	var searchResults = jsonResult;
 	
 	var searchResultContainer = $("#searchResults");
 	searchResultContainer.empty(); //remove existing;
@@ -28,7 +28,7 @@ $(function(){
 		
 		setPagination(searchResults.total, searchResults.page);
 	}
-});
+}
 
 function setPagination(totalPages, currentPage){
 	var paginationElem = $("#pagination");

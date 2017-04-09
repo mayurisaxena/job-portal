@@ -56,27 +56,27 @@
 	</div>
 
 	<div class="wrapper-content">
-		
+
 		<div class="container-fluid">
 			<div class="col-sm-8 col-sm-offset-2">
 				<div class="searchContainer">
 					<form action="/jobSearch.do" method="post">
 						<div class="input-group">
-						  <input type="text" class="form-control" placeholder="Job Title, Keywords" required>
-						  <span class="input-group-btn">
-							<button type="submit" class="btn btn-danger">Search</button>
-						  </span>
+							<input type="text" class="form-control"
+								placeholder="Job Title, Keywords" required> <span
+								class="input-group-btn">
+								<button type="submit" class="btn btn-danger">Search</button>
+							</span>
 						</div>
 					</form>
 				</div>
 			</div>
-			
-			<div id="searchResults" class="col-sm-8 col-sm-offset-2">
-			</div>
+
+			<div id="searchResults" class="col-sm-8 col-sm-offset-2"></div>
 			<div class="col-sm-8 col-sm-offset-2">
 				<nav aria-label="Page navigation">
-				  <ul id="pagination" class="pagination">
-				  </ul>
+					<ul id="pagination" class="pagination">
+					</ul>
 				</nav>
 			</div>
 		</div>
@@ -112,6 +112,15 @@
 	<script>
 		$(document).ready(function() {
 			appMaster.preLoader();
+
+			var getAllRequest = $.ajax({
+				url : "http://localhost:8080/jobSearch.do",
+				type : "POST",
+				dataType : "json"
+			});
+			getAllRequest.done(function(response) {
+				setSearchResult(response)
+			});
 		});
 	</script>
 
