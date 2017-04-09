@@ -3,7 +3,7 @@ function setSearchResult(jsonResult){
 	var searchResults = jsonResult;
 	
 	var searchResultContainer = $("#searchResults");
-	searchResultContainer.empty(); //remove existing;
+	searchResultContainer.empty();
 	if(searchResults){		
 		
 		$.each(searchResults.rows, function(i, item){

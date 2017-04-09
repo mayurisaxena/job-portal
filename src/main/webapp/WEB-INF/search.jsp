@@ -112,7 +112,7 @@
 	<script>
 		$(document).ready(function() {
 			appMaster.preLoader();
-
+			//TODO set the session.getAttribute("skills") to the input text
 			var getAllRequest = $.ajax({
 				url : "http://localhost:8080/jobSearch.do",
 				type : "POST",

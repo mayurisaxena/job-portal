@@ -10,5 +10,9 @@ public class CandidateService {
 	public void save(Candidate candidate){
 		candidateDao.save(candidate);
 	}
+	
+	public Candidate getCandidateById(String id){
+		return candidateDao.getCandidateById(Integer.parseInt(id));
+	}
 
 }

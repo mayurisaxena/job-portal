@@ -56,7 +56,7 @@ public class AbstractDao<T> {
 		Session session = getNewSession();
 		try {
 			tx = session.beginTransaction();
-			session.persist(t);
+			session.saveOrUpdate(t);
 			tx.commit();
 		} catch (HibernateException e) {
 			if (tx != null)
