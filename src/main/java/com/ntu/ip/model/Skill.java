@@ -44,4 +44,23 @@ public class Skill {
 		this.skillName = skillName;
 	}
 
+	@Override
+    public boolean equals(Object o) {
+
+        if (o == this) return true;
+        if (!(o instanceof Skill)) {
+            return false;
+        }
+
+        Skill skill = (Skill) o;
+
+        return skill.getId() == (this.getId());
+    }
+
+    @Override
+    public int hashCode() {
+        
+        return this.getId();
+    }
+	
 }

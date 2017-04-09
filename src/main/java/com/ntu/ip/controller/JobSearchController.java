@@ -40,7 +40,7 @@ public class JobSearchController extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String skills = (String) request.getSession().getAttribute(SKILLS2);
+		String skills = (String) request.getParameter("skills");
 		List<JobDto> jobList = new ArrayList<>();
 		if(skills == null){
 			jobList.addAll(jobService.getLatestJobs());

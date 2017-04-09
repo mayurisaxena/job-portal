@@ -11,8 +11,8 @@ public class CandidateService {
 		candidateDao.save(candidate);
 	}
 	
-	public Candidate getCandidateById(String id){
-		return candidateDao.getCandidateById(Integer.parseInt(id));
+	public Candidate getCandidateById(Integer id){
+		return candidateDao.getCandidateById(id);
 	}
 
 }

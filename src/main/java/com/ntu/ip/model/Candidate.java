@@ -2,12 +2,14 @@ package com.ntu.ip.model;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.AttributeOverride;
 import javax.persistence.AttributeOverrides;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
@@ -49,10 +51,10 @@ public class Candidate extends User {
 	@Column(name = "Qualification", columnDefinition = "VARCHAR(100)")
 	private String qualification;
 	
-	@ManyToMany(cascade = CascadeType.ALL)
+	@ManyToMany(fetch=FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinTable(name = "Candidate_Skill", joinColumns = { @JoinColumn(name = "Candidate_Id") }, inverseJoinColumns = {
 			@JoinColumn(name = "Skill_Id") })
-	private List<Skill> skills;
+	private Set<Skill> skills;
 	
 	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "Candidate_Job", joinColumns = { @JoinColumn(name = "Candidate_Id") }, inverseJoinColumns = {
@@ -123,11 +125,11 @@ public class Candidate extends User {
 		this.description = description;
 	}
 
-	public List<Skill> getSkills() {
+	public Set<Skill> getSkills() {
 		return skills;
 	}
 
-	public void setSkills(List<Skill> skills) {
+	public void setSkills(Set<Skill> skills) {
 		this.skills = skills;
 	}
 

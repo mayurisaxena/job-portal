@@ -17,7 +17,7 @@
 					value='XFe2rTYl9WOpV8U6X5CfbIuOZOELJ97S' />
 				<div id="div_id_firstname" class="form-group required">
 					<label for="id_firstname"
-						class="control-label col-md-4  requiredField"> First Name<span
+						class="control-label col-md-4  requiredField"> Full Name<span
 						class="asteriskField">*</span>
 					</label>
 					<div class="controls col-md-8 ">

@@ -30,7 +30,7 @@
 					</div>
 				</div>
 				<div class="panel-body">
-					<form method="post" action="/employeeAdd.do">
+					<form method="post" action="/candidateUpdate.do">
 						<input type='hidden' name='csrfmiddlewaretoken'
 							value='XFe2rTYl9WOpV8U6X5CfbIuOZOELJ97S' />
 
@@ -68,8 +68,8 @@
 								</label>
 								<div class="controls row-lg-12 col-lg-12">
 									<textarea class="input-md textinput textInput form-control"
-										id="id_jobdesc" name="description" value="${description}" placeholder="Enter the Your Description and Experience"
-											  style="margin-bottom: 20px" type="text" rows= "10"></textarea>
+										id="id_jobdesc" name="description" placeholder="Enter the Your Description and Experience"
+											  style="margin-bottom: 20px" type="text" rows= "10">${description}</textarea>
 								</div>
 							
 								<div class="col-md-10 col-lg-11">&nbsp;</div>
@@ -81,8 +81,8 @@
 								</label>
 							  <div class="controls col-lg-12 row-lg-12">
 									<textarea class="input-md textinput textInput form-control"
-										id="id_jobskills" name="skills" value="${skills}" placeholder="Enter the Your Software Skills with comma seperated"
-										style="margin-bottom: 20px" type="text" rows= "3" ></textarea>
+										id="id_jobskills" name="skills" placeholder="Enter the Your Software Skills with comma seperated"
+										style="margin-bottom: 20px" type="text" rows= "3" >${skills}</textarea>
 								</div>
 							  <div class="controls col-md-10 col-lg-12"> </div>
 							 </div>
@@ -90,8 +90,8 @@
 							<div class="form-group">
 								<div class="aab controls col-md-4 "></div>
 								<div class="controls col-md-8 ">
-									<input type="submit" name="Submit Job" value="Submit Job"
-										class="btn btn-primary btn btn-info row" id="submit-id-submitjob" />
+									<input type="submit" name="Save Profile" value="Save Profile"
+										class="btn btn-primary btn btn-info row" id="submit-id-saveProfile" />
 								</div>
 							</div>
 					

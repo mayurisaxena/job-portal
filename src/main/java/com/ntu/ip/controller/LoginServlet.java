@@ -38,12 +38,12 @@ public class LoginServlet extends HttpServlet {
 			if (user.getRole().equals("Candidate")) {
 				request.getSession().setAttribute("userRole", "candidate");
 				request.getSession().setAttribute("userId", user.getId());
-				request.getSession().setAttribute("User", user);
+				request.getSession().setAttribute("user", user);
 				response.sendRedirect("/candidateUpdate.do");
 			} else {
 				request.getSession().setAttribute("userRole", "employer");
 				request.getSession().setAttribute("userId", user.getId());
-				request.getSession().setAttribute("User", user);
+				request.getSession().setAttribute("user", user);
 				response.sendRedirect("/jobs.do");
 			}
 			
