@@ -1,0 +1,85 @@
+div.pre-loader{	
+	background: rgb(1, 29, 58);
+}
+header, footer {
+	background: url(../img/background_blur.jpg);
+	background-size: 100%;
+	position: relative;
+}
+
+header .overlay, footer .overlay{
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		background:#003161;
+		opacity: 0.6;
+}
+
+.searchContainer{
+	position: absolute;
+	top:50%;
+	left:15%;
+	right:15%;
+}
+
+.searchContainer button{
+	padding: 11px 30px;
+}
+
+header .navbar-default.scrolled .navbar-brand{
+	background: #c72127;
+}
+
+header .navbar-default.scrolled{
+	border-bottom: 2px solid #c72127;
+	background:rgb(1, 29, 58);
+}
+
+
+
+header .navbar-default ul.navbar-nav li a{
+	color: #fff;
+}
+
+header .navbar-default.scrolled ul.navbar-nav li a{
+	color: #fff;
+}
+
+.section-heading{
+	margin : 60px 0 30px;
+}
+
+.section-heading h1{
+	color: #636363;
+}
+
+section .section-heading .divider:after{
+	background: #c72127;
+}
+
+.panel-info{
+	border-color: #c3c3c3;
+}
+
+.panel-info > .panel-heading{
+	color: #fff;
+	background-color: #011d3a;
+	border-bottom: 3px solid #b3b3b3;
+}
+
+.panel-heading a{
+	color: #bbbbbb;
+}
+
+.btn.btn-primary{
+	color: #fff;
+	border: none;
+	background: #011d3a;
+}
+
+.btn.btn-primary:hover{
+	border: none;
+	background: #336799;
+}
