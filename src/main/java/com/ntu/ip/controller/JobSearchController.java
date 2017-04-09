@@ -46,8 +46,11 @@ public class JobSearchController extends HttpServlet {
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		String jsonArray = gson.toJson(jobList);
 		jsonArray = "{\"page\":1,\"total\":\"2\",\"records\":" + jobList.size() + ",\"rows\":" + jsonArray + "}";
-
+		response.setContentType("application/json");
+		response.setCharacterEncoding("UTF-8");
 		response.getWriter().print(jsonArray);
+		request.getRequestDispatcher("/WEB-INF/search.jsp").forward(
+				request, response);
 	}
 
 }

@@ -9,7 +9,7 @@
 						data-target="#bs-example-navbar-collapse-1">
 						<span class="fa fa-bars fa-lg"></span>
 					</button>
-					<a class="navbar-brand" href="index.html"> <img
+					<a class="navbar-brand" href="home.jsp"> <img
 						src="img/freeze/logo.png" alt="" class="logo">
 					</a>
 				</div>

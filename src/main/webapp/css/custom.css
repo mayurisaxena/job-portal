@@ -1,5 +1,6 @@
 div.pre-loader{	
 	background: rgb(1, 29, 58);
+	top: 0;
 }
 header, footer {
 	background: url(../img/background_blur.jpg);
@@ -18,6 +19,10 @@ header .overlay, footer .overlay{
 }
 
 .searchContainer{
+	padding: 40px 0px;
+}
+
+header .searchContainer{
 	position: absolute;
 	top:50%;
 	left:15%;
@@ -34,7 +39,7 @@ header .navbar-default.scrolled .navbar-brand{
 
 header .navbar-default.scrolled{
 	border-bottom: 2px solid #c72127;
-	background:rgb(1, 29, 58);
+	background:#011d3a;
 }
 
 
@@ -47,11 +52,17 @@ header .navbar-default.scrolled ul.navbar-nav li a{
 	color: #fff;
 }
 
+header .navbar-default.header-other{
+	border-bottom: 2px solid #c72127;
+	background:#011d3a;
+}
+
 .section-heading{
-	margin : 60px 0 30px;
+	margin : 30px 0 30px;
 }
 
 .section-heading h1{
+	font-size: 40px;
 	color: #636363;
 }
 
@@ -60,12 +71,12 @@ section .section-heading .divider:after{
 }
 
 .panel-info{
-	border-color: #c3c3c3;
+	border: none;
 }
 
 .panel-info > .panel-heading{
-	color: #fff;
-	background-color: #011d3a;
+	color: #011d3a;
+	background-color: #fff;
 	border-bottom: 3px solid #b3b3b3;
 }
 
@@ -82,4 +93,55 @@ section .section-heading .divider:after{
 .btn.btn-primary:hover{
 	border: none;
 	background: #336799;
+}
+
+section#signup{
+	background: #fff;
+}
+
+section#signup .container-fluid{
+	padding: 0;
+}
+
+h1, h2,h3, h4, h5, h6{
+	font-family: 'Lato', Arial;
+}
+
+.wrapper-content{
+	margin-top: 150px;
+}
+
+.list-group{
+	border-left: 3px solid #ccc;
+	padding: 10px 10px 2px 10px;
+	background: #f7f7f7;
+}
+
+.list-heading .list-group-item-heading{
+	color: #011d3a;
+	font-weight: bold;
+	margin-right: 100px;
+}
+
+.list-heading button{
+	float: right;
+	margin-top: -24px;
+}
+
+.list-group .sub-header{
+	color: #c7464a;
+}
+
+.list-content i{
+	width: 15px;
+	text-align: center;
+}
+
+.pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus{
+	background: #011d3a;
+	border-color: #011d3a;
+}
+
+.pagination > li > a, .pagination > li > span{
+	color: #011d3a;
 }
