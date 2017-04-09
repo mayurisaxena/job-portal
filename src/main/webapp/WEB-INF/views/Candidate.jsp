@@ -21,9 +21,9 @@
 						class="asteriskField">*</span>
 					</label>
 					<div class="controls col-md-8 ">
-						<input class="input-md  textinput textInput form-control"
+						<input class="input-md  textinput textInput form-control required_entry_candidate" 
 							id="id_firstname" maxlength="30" name="firstname"
-							placeholder="Your First Name" style="margin-bottom: 10px"
+							 style="margin-bottom: 10px"
 							type="text" />
 					</div>
 				</div>
@@ -32,8 +32,8 @@
 						E-mail<span class="asteriskField">*</span>
 					</label>
 					<div class="controls col-md-8 ">
-						<input class="input-md emailinput form-control" id="id_email"
-							name="email" placeholder="Your Current email Address"
+						<input class="input-md emailinput form-control required_entry_candidate" id="id_email" 
+							name="email" 
 							style="margin-bottom: 10px" type="email" />
 					</div>
 				</div>
@@ -43,9 +43,9 @@
 						class="asteriskField">*</span>
 					</label>
 					<div class="controls col-md-8 ">
-						<input class="input-md textinput textInput form-control"
+						<input class="input-md textinput textInput form-control required_entry_candidate" 
 							id="id_password1" name="password1"
-							placeholder="Enter the Password" style="margin-bottom: 10px"
+							 style="margin-bottom: 10px"
 							type="password" />
 					</div>
 				</div>
@@ -55,9 +55,9 @@
 						class="asteriskField">*</span>
 					</label>
 					<div class="controls col-md-8 ">
-						<input class="input-md textinput textInput form-control"
+						<input class="input-md textinput textInput form-control required_entry_candidate" 
 							id="id_password2" name="password2"
-							placeholder="Confirm your Password" style="margin-bottom: 10px"
+							 style="margin-bottom: 10px"
 							type="password" />
 					</div>
 				</div>
@@ -68,8 +68,8 @@
 						Number<span class="asteriskField">*</span>
 					</label>
 					<div class="controls col-md-8 ">
-						<input class="input-md textinput textInput form-control"
-							id="id_number" name="number" placeholder="Provide Your Number"
+						<input class="input-md textinput textInput form-control required_entry_candidate" 
+							id="id_number" name="number" 
 							style="margin-bottom: 10px" type="text" />
 					</div>
 				</div>
@@ -79,8 +79,8 @@
 						class="asteriskField">*</span>
 					</label>
 					<div class="controls col-md-8 ">
-						<input class="input-md textinput textInput form-control"
-							id="id_address" name="Address" placeholder="Your Company Address"
+						<input class="input-md textinput textInput form-control required_entry_candidate" 
+							id="id_address" name="Address" 
 							style="margin-bottom: 10px" type="text" />
 					</div>
 				</div>
@@ -90,34 +90,18 @@
 						Educational Qualification<span class="asteriskField">*</span>
 					</label>
 					<div class="controls col-md-8 ">
-						<input class="input-md textinput textInput form-control"
+						<input class="input-md textinput textInput form-control required_entry_candidate" 
 							id="id_qualification" name="qualification"
-							placeholder="Your Highest Educational Qualification"
+							
 							style="margin-bottom: 10px" type="text" />
 					</div>
 				</div>
-
-
-
-
-
-				<div class="form-group">
-					<div class="controls col-md-offset-4 col-md-8 ">
-						<div id="div_id_terms" class="checkbox required">
-							<label for="id_terms" class=" requiredField"> <input
-								class="input-ms checkboxinput" id="id_terms" name="terms"
-								style="margin-bottom: 10px" type="checkbox" /> Agree with the
-								terms and conditions
-							</label>
-						</div>
-
-					</div>
-				</div>
+				
 				<div class="form-group">
 					<div class="aab controls col-md-4 "></div>
 					<div class="controls col-md-8 ">
 						<input type="submit" name="Signup" value="Signup"
-							class="btn btn-primary btn btn-info" id="submit-id-signup" />
+							class="btn btn-primary btn btn-info requiredSubmitCandidate" id="submit-id-signup" />
 					</div>
 				</div>
 
@@ -130,7 +114,7 @@
 	$(document)
 			.ready(
 					function() {
-
+						
 						var enrollType;
 						//  $("#div_id_As").hide();
 						$("input[name='As']")

@@ -57,6 +57,18 @@
 	</div>
 
 	<div class="wrapper">
+		<section id="login" class="doublediagonal">
+			<div class="container" style="padding: 15px;">
+				<div class="section-heading scrollpoint sp-effect3" style="size: 100%">
+					<h1>Log In</h1>
+					<div class="divider"></div>
+				</div>
+				<div id="user_login" style="size: 50%; padding: 10px">
+					<jsp:include page="views/login.jsp" />
+				</div>
+
+			</div>
+		</section>
 		<section id="signup" class="doublediagonal">
 			<div class="container" style="padding: 15px;">
 				<div class="section-heading scrollpoint sp-effect3" style="size: 100%">
@@ -100,6 +112,7 @@
 	<script src="js/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
 	<script src="js/waypoints.min.js"></script>
 	<script src="js/scripts.js"></script>
+	<script src="js/basic.js"></script>
 
 	<script>
 		$(document).ready(function() {

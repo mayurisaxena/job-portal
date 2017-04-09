@@ -22,9 +22,9 @@
 						class="asteriskField">*</span>
 					</label>
 					<div class="controls col-md-8 ">
-						<input class="input-md form-control textInput" id="id_aliasname"
+						<input class="input-md form-control textInput required_entry_employer" id="id_aliasname"
 							maxlength="30" name="aliasname"
-							placeholder="Choose Your Alias Name" style="margin-bottom: 10px; color: red;"
+							 style="margin-bottom: 10px;"
 							type="text" />
 					</div>
 				</div>
@@ -34,7 +34,7 @@
 					</label>
 					<div class="controls col-md-8 ">
 						<input class="input-md emailinput form-control" id="id_email"
-							name="email" placeholder="Your Current email Address"
+							name="email" 
 							style="margin-bottom: 10px" type="email" />
 					</div>
 				</div>
@@ -44,9 +44,8 @@
 						class="asteriskField">*</span>
 					</label>
 					<div class="controls col-md-8 ">
-						<input class="input-md textinput textInput form-control"
-							id="id_password1" name="password1"
-							placeholder="Enter the Password" style="margin-bottom: 10px"
+						<input class="input-md textinput textInput form-control required_entry_employer"
+							id="id_password1" name="password" style="margin-bottom: 10px"
 							type="password" />
 					</div>
 				</div>
@@ -55,10 +54,10 @@
 						class="control-label col-md-4  requiredField"> Re:password<span
 						class="asteriskField">*</span>
 					</label>
-					<div class="controls col-md-8 ">
-						<input class="input-md textinput textInput form-control"
+					<div class="controls col-md-8 "> 
+						<input class="input-md textinput textInput form-control required_entry_employer"
 							id="id_password2" name="password2"
-							placeholder="Confirm your Password" style="margin-bottom: 10px"
+							 style="margin-bottom: 10px"
 							type="password" />
 					</div>
 				</div>
@@ -69,8 +68,8 @@
 						Name<span class="asteriskField">*</span>
 					</label>
 					<div class="controls col-md-8 ">
-						<input class="input-md textinput textInput form-control"
-							id="id_company" name="company" placeholder="Your Company Name"
+						<input class="input-md textinput textInput form-control required_entry_employer"
+							id="id_company" name="company" 
 							style="margin-bottom: 10px" type="text" />
 					</div>
 				</div>
@@ -81,8 +80,8 @@
 						Number<span class="asteriskField">*</span>
 					</label>
 					<div class="controls col-md-8 ">
-						<input class="input-md textinput textInput form-control"
-							id="id_number" name="number" placeholder="Provide Your Number"
+						<input class="input-md textinput textInput form-control required_entry_employer"
+							id="id_number" name="number" 
 							style="margin-bottom: 10px" type="text" />
 					</div>
 				</div>
@@ -92,28 +91,17 @@
 						class="asteriskField">*</span>
 					</label>
 					<div class="controls col-md-8 ">
-						<input class="input-md textinput textInput form-control"
-							id="id_address" name="Address" placeholder="Your Company Address"
+						<input class="input-md textinput textInput form-control required_entry_employer"
+							id="id_address" name="Address" 
 							style="margin-bottom: 10px" type="text" />
 					</div>
 				</div>
-				<div class="form-group">
-					<div class="controls col-md-offset-4 col-md-8 ">
-						<div id="div_id_terms" class="checkbox required">
-							<label for="id_terms" class=" requiredField"> <input
-								class="input-ms checkboxinput" id="id_terms" name="terms"
-								style="margin-bottom: 10px" type="checkbox" /> Agree with the
-								terms and conditions
-							</label>
-						</div>
-
-					</div>
-				</div>
+				
 				<div class="form-group">
 					<div class="aab controls col-md-4 "></div>
 					<div class="controls col-md-8 ">
 						<input type="submit" name="Signup" value="Signup"
-							class="btn btn-primary btn btn-info" id="submit-id-signup" />
+							class="btn btn-primary btn btn-info requiredSubmitEmployer"  id="submit-id-signup" />
 					</div>
 				</div>
 

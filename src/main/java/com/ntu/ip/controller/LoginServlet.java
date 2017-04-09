@@ -38,7 +38,7 @@ public class LoginServlet extends HttpServlet {
 			response.sendRedirect("/jobs.do");
 		} else {
 			request.setAttribute("errorMessage", "Invalid Credentials!");
-			request.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(
+			request.getRequestDispatcher("/WEB-INF/home.jsp").forward(
 					request, response);
 		}
 	}
