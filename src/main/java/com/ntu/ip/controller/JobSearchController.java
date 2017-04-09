@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.ntu.ip.dto.JobDto;
 import com.ntu.ip.model.Job;
 import com.ntu.ip.service.JobService;
 
@@ -34,11 +35,11 @@ public class JobSearchController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String skills = request.getParameter("skills");
-		List<Job> jobList = new ArrayList<>();
+		List<JobDto> jobList = new ArrayList<>();
 		if(skills == null){
 			jobList.addAll(jobService.getLatestJobs());
 		}
-		List<Job> jobsBySkills = jobService.getJobsBySkills(skills);
+		List<JobDto> jobsBySkills = jobService.getJobsBySkills(skills);
 		if (jobsBySkills != null)
 			jobList.addAll(jobsBySkills);
 

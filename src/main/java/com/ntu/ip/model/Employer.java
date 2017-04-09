@@ -28,7 +28,7 @@ public class Employer extends User{
 	@Column(name="Description", columnDefinition="VARCHAR(500)")
 	private String description;
 	
-	@OneToMany(fetch=FetchType.LAZY,mappedBy="employer")
+	@OneToMany(fetch=FetchType.EAGER,mappedBy="employer")
 	private List<Job> myJobs;
 
 	public String getAddress() {

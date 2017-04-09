@@ -36,7 +36,7 @@ public class Job {
 			@JoinColumn(name = "Skill_Id") })
 	private Set<Skill> skills;
 
-	@ManyToOne()
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name = "Employer_Id")
 	private Employer employer;
 
@@ -86,6 +86,14 @@ public class Job {
 
 	public void setPostedDate(Date postedDate) {
 		this.postedDate = postedDate;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
 	}
 
 }
