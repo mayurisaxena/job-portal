@@ -34,7 +34,7 @@ public class EmployeeController extends HttpServlet {
 		employer.setAlias(request.getParameter("aliasname"));
 		employer.setUserName(request.getParameter("email"));
 		employer.setRole(EMPLOYER);
-		employer.setUsrPwd(request.getParameter("password1"));
+		employer.setUsrPwd(request.getParameter("password"));
 		employer.setCompanyName(request.getParameter("company"));
 		employer.setContactNo(request.getParameter("number"));
 		employer.setAddress(request.getParameter("Address"));
