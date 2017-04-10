@@ -35,7 +35,7 @@ public class CandidateUpdateController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		Candidate candidate = candidateService.getCandidateById((Integer)request.getSession().getAttribute("userId"));
-		request.setAttribute("firstname",candidate.getUserName());
+		request.setAttribute("firstname",candidate.getFirstName());
 		request.setAttribute("qualification",candidate.getQualification());
 		request.setAttribute("description",candidate.getDescription());
 		String skill = "";
@@ -60,7 +60,7 @@ public class CandidateUpdateController extends HttpServlet {
 		//candidate.setDescription(request.getParameter("description"));
 		candidate.setRole(CANDIDATE);
 		candidateService.save(candidate);
-		response.setStatus(1);
+		request.getRequestDispatcher("/WEB-INF/views/CandidateHome.jsp").forward(request, response);
 	}
 
 }

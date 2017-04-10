@@ -56,11 +56,19 @@ public class Candidate extends User {
 			@JoinColumn(name = "Skill_Id") })
 	private Set<Skill> skills;
 	
-	@ManyToMany(cascade = CascadeType.ALL)
+	@ManyToMany(fetch=FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinTable(name = "Candidate_Job", joinColumns = { @JoinColumn(name = "Candidate_Id") }, inverseJoinColumns = {
 			@JoinColumn(name = "Job_Id") })
-	private List<Job> appliedJobs;
+	private Set<Job> appliedJobs;
 	
+	public Set<Job> getAppliedJobs() {
+		return appliedJobs;
+	}
+
+	public void setAppliedJobs(Set<Job> appliedJobs) {
+		this.appliedJobs = appliedJobs;
+	}
+
 	public String getFirstName() {
 		return firstName;
 	}

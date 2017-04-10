@@ -3,6 +3,7 @@ package com.ntu.ip.controller;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,10 +13,13 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.ntu.ip.dto.JobDto;
+import com.ntu.ip.model.Candidate;
 import com.ntu.ip.model.Job;
+import com.ntu.ip.service.CandidateService;
 import com.ntu.ip.service.JobService;
 
-@WebServlet(urlPatterns = "/canJobSearch.do")
+@WebServlet(urlPatterns = "/canApplications.do")
 public class CanidateAppliedJobs extends HttpServlet {
 
 	/**
@@ -26,18 +30,24 @@ public class CanidateAppliedJobs extends HttpServlet {
 	 * 
 	 */
 	private JobService jobService = new JobService();
+	private CandidateService candidateService = new CandidateService();
 	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String candidateId = request.getAttribute("candidateId").toString();
-		List<Job> jobList = new ArrayList<>();
+		String candidateId = request.getSession().getAttribute("userId").toString();
+		/*List<Job> jobList = new ArrayList<>();
 		List<Job> jobsBySkills = jobService.getJobsByCandidate(candidateId);
 		if (jobsBySkills != null)
-			jobList.addAll(jobsBySkills);
-
+			jobList.addAll(jobsBySkills);*/
+		Candidate candidate = candidateService.getCandidateById(Integer.parseInt(candidateId));
+		Set<Job> jobs = candidate.getAppliedJobs();
+		List<JobDto> jobsList = new ArrayList<JobDto>();
+		for (Job job:jobs) {
+			jobsList.add(new JobDto(job));
+		}
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
-		String jsonArray = gson.toJson(jobList);
-		jsonArray = "{\"page\":1,\"total\":\"2\",\"records\":" + jobList.size() + ",\"rows\":" + jsonArray + "}";
+		String jsonArray = gson.toJson(jobsList);
+		jsonArray = "{\"page\":1,\"total\":\"2\",\"records\":" + jobsList.size() + ",\"rows\":" + jsonArray + "}";
 
 		response.getWriter().print(jsonArray);
 	}
