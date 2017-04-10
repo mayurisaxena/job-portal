@@ -38,8 +38,8 @@ public class ApplyJob extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String candidateId = (String) request.getSession().getAttribute("userId");
-		String jobIdS = (String) request.getAttribute("jobId");
+		String candidateId = request.getSession().getAttribute("userId").toString();
+		String jobIdS = (String) request.getParameter("jobId");
 		Candidate candidate = candidateService.getCandidateById(Integer.parseInt(candidateId));
 		Set<Job> jobs = candidate.getAppliedJobs();
 		Job job = jobService.getJobById(jobIdS);
