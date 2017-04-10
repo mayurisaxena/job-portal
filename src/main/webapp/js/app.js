@@ -57,12 +57,13 @@ function setPagination(totalPages, currentPage){
 }
 
 $(document).on('click', '.apply-button', function ()  {
-	var jobId = $(this).closest(".list-group").attr('id');
+	var job = $(this).closest(".list-group").attr('id');
+	console.log(job);
 	$.ajax({
 		url : "http://localhost:8080/applyJob.do",
 		type : "POST",
 		data :  { 
-	        'jobId': jobId
+	        'jobId': job
 	      },
 		dataType : "json",
 		success: function (response) {
