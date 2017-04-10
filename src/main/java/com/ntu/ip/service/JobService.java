@@ -13,13 +13,17 @@ public class JobService {
 
 	private JobDao jobDao = new JobDao();
 
-	public List<JobDto> getJobsBySkills(String skills) {
+	public List<JobDto> getJobsBySkills(String skills, String candidateId) {
+		int cid = candidateId == null ? -1 : Integer.parseInt(candidateId);
 		List<String> skillsList = Arrays.asList(skills.split(","));
 		List<JobDto> jobDto = new ArrayList<>();
 		List jobsBySkills = jobDao.getJobsBySkills(skillsList);
-		for (Object job : jobsBySkills) {
-			Object[] objr = (Object[]) job;
-			jobDto.add(new JobDto((Job) objr[0]));
+		for (Object jobR : jobsBySkills) {
+			Object[] objr = (Object[]) jobR;
+			Job job = (Job) objr[0];
+			JobDto dtoJob = new JobDto(job);
+			dtoJob.setShowApply(!job.hasAppliedForTheJob(cid));
+			jobDto.add(dtoJob);
 		}
 		return jobDto;
 	}
@@ -36,8 +40,8 @@ public class JobService {
 		List<JobDto> jobDto = jobDao.getLatestJobList().stream().map(e -> new JobDto(e)).collect(Collectors.toList());
 		return jobDto;
 	}
-	
-	public Job getJobById(String id){
+
+	public Job getJobById(String id) {
 		return jobDao.getById(Integer.parseInt(id));
 	}
 

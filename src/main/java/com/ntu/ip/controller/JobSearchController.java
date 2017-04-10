@@ -50,14 +50,14 @@ public class JobSearchController extends HttpServlet {
 		if(skills == null || skills.length() == 0){
 			jobList.addAll(jobService.getLatestJobs());
 		}
-		List<JobDto> jobsBySkills = jobService.getJobsBySkills(skills);
+		List<JobDto> jobsBySkills = jobService.getJobsBySkills(skills,candidateId);
 		if (jobsBySkills != null)
 			jobList.addAll(jobsBySkills);
-		if (candidateId != null) {
-			for (JobDto jd:jobList) {
-				jd.setShowApply(true);
-			}
-		}
+//		if (candidateId != null) {
+//			for (JobDto jd:jobList) {
+//				jd.setShowApply(true);
+//			}
+//		}
 		
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		String jsonArray = gson.toJson(jobList);

@@ -96,4 +96,24 @@ public class Job {
 		this.title = title;
 	}
 
+	public Set<Candidate> getAppliedCandidates() {
+		return appliedCandidates;
+	}
+
+	public void setAppliedCandidates(Set<Candidate> appliedCandidates) {
+		this.appliedCandidates = appliedCandidates;
+	}
+	
+	public boolean hasAppliedForTheJob(int candidateId){
+		if(candidateId < 0 ){
+			return false;
+		}
+		for (Candidate candidate : appliedCandidates) {
+			if(candidate.getId() == candidateId){
+				return true;
+			}
+		}
+		return false;
+	}
+
 }
