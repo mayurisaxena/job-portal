@@ -45,8 +45,9 @@ public class ApplyJob extends HttpServlet {
 		Job job = jobService.getJobById(jobIdS);
 		jobs.add(job);
 		candidate.setAppliedJobs(jobs);
-		candidateService.update(candidate);
-		request.getRequestDispatcher("/WEB-INF/views/CanApplications.jsp").forward(request, response);
+			candidateService.update(candidate);
+		
+		
 	}
 
 }

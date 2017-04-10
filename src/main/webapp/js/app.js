@@ -66,8 +66,8 @@ $(document).on('click', '.apply-button', function ()  {
 	        'jobId': job
 	      },
 		dataType : "json",
-		success: function (response) {
-			alert("Applied Successfully");
+		complete: function (response) {
+				alert("Applied Successfully");
 	      }
 	});
 });

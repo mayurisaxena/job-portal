@@ -49,7 +49,7 @@ public class JobSearchController extends HttpServlet {
 			skills = request.getParameter("skills");
 		}
 		List<JobDto> jobList = new ArrayList<>();
-		if(skills == null || skills.length() == 0){
+		if(skills == null || skills.length() == 0 ){
 			jobList.addAll(jobService.getLatestJobs());
 		}
 		List<JobDto> jobsBySkills = jobService.getJobsBySkills(skills,candidateId,userRole.equals("candidate"));

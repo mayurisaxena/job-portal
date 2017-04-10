@@ -139,7 +139,7 @@ public class AbstractDao<T> {
 		} catch (HibernateException e) {
 			if (tx != null)
 				tx.rollback();
-			e.printStackTrace();
+				e.printStackTrace();
 		} finally {
 			session.close();
 		}
