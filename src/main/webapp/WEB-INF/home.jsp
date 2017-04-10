@@ -42,7 +42,8 @@
 	<div class="pre-loader">
 		<div class="overlay"></div>
 		<div class="load-con">
-			<img src="img/freeze/logo.png" class="animated fadeInDown" alt="" href="home.do">
+			<img src="img/freeze/logo.png" class="animated fadeInDown" alt=""
+				href="home.do">
 
 			<div class="spinner">
 				<div class="bounce1"></div>
@@ -59,7 +60,8 @@
 	<div class="wrapper">
 		<section id="login" class="doublediagonal">
 			<div class="container" style="padding: 15px;">
-				<div class="section-heading scrollpoint sp-effect3" style="size: 100%">
+				<div class="section-heading scrollpoint sp-effect3"
+					style="size: 100%">
 					<h1>Log In</h1>
 					<div class="divider"></div>
 				</div>
@@ -70,15 +72,15 @@
 			</div>
 		</section>
 		<section id="signup" class="doublediagonal">
-			<div class="container" style="padding: 15px;">
-				<div class="section-heading" style="size: 100%">
+			<div class="container-fluid">
+				<div class="section-heading scrollpoint sp-effect3 col-sm-12" style="size: 100%">
 					<h1>Sign Up</h1>
 					<div class="divider"></div>
 				</div>
-				<div id="Employee_add_form" style="float: left; size: 50%; padding: 10px;">
+				<div id="Employee_add_form" class="col-sm-6">
 					<jsp:include page="views/employee.jsp" />
 				</div>
-				<div id="Candidate_add_form" style="float: right; size: 50%; padding: 10px">
+				<div id="Candidate_add_form"  class="col-sm-6">
 					<jsp:include page="views/Candidate.jsp" />
 				</div>
 
@@ -117,6 +119,15 @@
 	<script>
 		$(document).ready(function() {
 			appMaster.preLoader();
+			
+// 			function(){
+<%-- 				var singupSucess = '<%=session.getAttribute("loginSucess")%>'; --%>
+// 				if(singupSucess!=''){
+// 					alert("Signup sucessfull please login using your username and password.");
+// 					 //$('.fetch_results').find('input:text').val(''); 
+// 				}
+					
+// 			}
 		});
 	</script>
 
