@@ -2,10 +2,12 @@ package com.ntu.ip.dao;
 
 import java.util.List;
 
+import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.Restrictions;
 
 import com.ntu.ip.model.Job;
 
@@ -60,5 +62,25 @@ public class JobDao extends AbstractDao<Job> {
 		Query query = session.createQuery(sql);
 		query.setMaxResults(50);
 		return getJobs(query, session);
+	}
+	
+	public Job getJobById(int id){
+		Transaction tx = null;
+		Session session = getNewSession();
+		Job job = null;
+		try {
+			tx = session.beginTransaction();
+			Criteria criteria = session.createCriteria(Job.class);
+			criteria.add(Restrictions.eq("id", id));
+			job = (Job) criteria.uniqueResult();
+			tx.commit();
+		} catch (HibernateException e) {
+			if (tx != null)
+				tx.rollback();
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
+		return job;
 	}
 }

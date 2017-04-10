@@ -36,5 +36,9 @@ public class JobService {
 		List<JobDto> jobDto = jobDao.getLatestJobList().stream().map(e -> new JobDto(e)).collect(Collectors.toList());
 		return jobDto;
 	}
+	
+	public Job getJobById(String id){
+		return jobDao.getJobById(Integer.parseInt(id));
+	}
 
 }
