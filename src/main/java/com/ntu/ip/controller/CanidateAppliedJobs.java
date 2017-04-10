@@ -16,6 +16,7 @@ import com.google.gson.GsonBuilder;
 import com.ntu.ip.dto.JobDto;
 import com.ntu.ip.model.Candidate;
 import com.ntu.ip.model.Job;
+import com.ntu.ip.model.Skill;
 import com.ntu.ip.service.CandidateService;
 import com.ntu.ip.service.JobService;
 
@@ -34,16 +35,20 @@ public class CanidateAppliedJobs extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
+		request.getRequestDispatcher("/WEB-INF/views/CanApplications.jsp").forward(request, response);
+	}
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		String candidateId = request.getSession().getAttribute("userId").toString();
-		/*List<Job> jobList = new ArrayList<>();
-		List<Job> jobsBySkills = jobService.getJobsByCandidate(candidateId);
-		if (jobsBySkills != null)
-			jobList.addAll(jobsBySkills);*/
+		
 		Candidate candidate = candidateService.getCandidateById(Integer.parseInt(candidateId));
 		Set<Job> jobs = candidate.getAppliedJobs();
 		List<JobDto> jobsList = new ArrayList<JobDto>();
 		for (Job job:jobs) {
-			jobsList.add(new JobDto(job));
+			JobDto jd = new JobDto(job);
+			jobsList.add(jd);
 		}
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		String jsonArray = gson.toJson(jobsList);

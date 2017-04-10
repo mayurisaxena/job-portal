@@ -11,8 +11,10 @@ function setSearchResult(jsonResult){
 			var listItem = $("<div>", {id: item.jobId, "class": "list-group"});
 			var listHeading = $("<div>", {"class": "list-heading"});
 			listHeading.append('<h4 class="list-group-item-heading">'+currentItem.title+'</h4>');
-			listHeading.append('<button class="btn btn-primary ">Apply</button>')
-			
+			if (currentItem.showApply) {
+				listHeading.append('<button class="btn btn-primary apply-button">Apply</button>')
+				}
+				
 			var listContent = $("<div>", {"class": "list-content"});
 			listContent.append('<p class="sub-header">'+currentItem.employer+'</p>');
 			listContent.append('<p>Keyskills:'+currentItem.skills+'</p>');
@@ -53,3 +55,18 @@ function setPagination(totalPages, currentPage){
 		
 	
 }
+
+$(document).on('click', '.apply-button', function ()  {
+	var jobId = $(this).closest(".list-group").attr('id');
+	$.ajax({
+		url : "http://localhost:8080/applyJob.do",
+		type : "POST",
+		data :  { 
+	        'jobId': jobId
+	      },
+		dataType : "json",
+		success: function (response) {
+			alert("Applied Successfully");
+	      }
+	});
+});

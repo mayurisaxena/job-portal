@@ -12,8 +12,17 @@ public class JobDto {
 	private String skills;
 	private String postedDate;
 	private String employer;
+	private boolean showApply = false;
 	
 	
+	public boolean isShowApply() {
+		return showApply;
+	}
+
+	public void setShowApply(boolean showApply) {
+		this.showApply = showApply;
+	}
+
 	private static SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
 	public String getTitle() {

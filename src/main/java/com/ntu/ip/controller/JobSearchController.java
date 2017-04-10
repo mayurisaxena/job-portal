@@ -40,6 +40,7 @@ public class JobSearchController extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		String candidateId = request.getSession().getAttribute("userId").toString();
 		String skills = (String) request.getSession().getAttribute("skills");
 		request.getSession().removeAttribute("skills");
 		if (skills == null || skills.length() == 0) {
@@ -52,7 +53,12 @@ public class JobSearchController extends HttpServlet {
 		List<JobDto> jobsBySkills = jobService.getJobsBySkills(skills);
 		if (jobsBySkills != null)
 			jobList.addAll(jobsBySkills);
-
+		if (candidateId != null) {
+			for (JobDto jd:jobList) {
+				jd.setShowApply(true);
+			}
+		}
+		
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		String jsonArray = gson.toJson(jobList);
 		jsonArray = "{\"page\":1,\"total\":\"2\",\"records\":" + jobList.size() + ",\"rows\":" + jsonArray + "}";

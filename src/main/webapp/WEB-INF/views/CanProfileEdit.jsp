@@ -40,7 +40,7 @@
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 </head>
 <body>
-<div id="header">
+	<div id="header">
 		<jsp:include page="CandidateHeader.jsp" />
 	</div>
 	<div class="wrapper-content">
