@@ -13,8 +13,8 @@ public class JobService {
 
 	private JobDao jobDao = new JobDao();
 
-	public List<JobDto> getJobsBySkills(String skills, String candidateId) {
-		int cid = candidateId == null ? -1 : Integer.parseInt(candidateId);
+	public List<JobDto> getJobsBySkills(String skills, String candidateId, boolean isCandidate) {
+		int cid = candidateId.isEmpty() ? -1 : Integer.parseInt(candidateId);
 		List<String> skillsList = Arrays.asList(skills.split(","));
 		List<JobDto> jobDto = new ArrayList<>();
 		List jobsBySkills = jobDao.getJobsBySkills(skillsList);
@@ -22,7 +22,7 @@ public class JobService {
 			Object[] objr = (Object[]) jobR;
 			Job job = (Job) objr[0];
 			JobDto dtoJob = new JobDto(job);
-			dtoJob.setShowApply(!job.hasAppliedForTheJob(cid));
+			dtoJob.setShowApply(!job.hasAppliedForTheJob(cid) && isCandidate);
 			jobDto.add(dtoJob);
 		}
 		return jobDto;

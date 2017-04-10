@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.mail.Session;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -40,7 +39,10 @@ public class JobSearchController extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String candidateId = request.getSession().getAttribute("userId").toString();
+		Object userIdAtt = request.getSession().getAttribute("userId");
+		Object userRoleAtt = request.getSession().getAttribute("userRole");
+		String candidateId = userIdAtt== null ? "" :userIdAtt.toString();
+		String userRole = userRoleAtt== null ? "" :userRoleAtt.toString();
 		String skills = (String) request.getSession().getAttribute("skills");
 		request.getSession().removeAttribute("skills");
 		if (skills == null || skills.length() == 0) {
@@ -50,7 +52,7 @@ public class JobSearchController extends HttpServlet {
 		if(skills == null || skills.length() == 0){
 			jobList.addAll(jobService.getLatestJobs());
 		}
-		List<JobDto> jobsBySkills = jobService.getJobsBySkills(skills,candidateId);
+		List<JobDto> jobsBySkills = jobService.getJobsBySkills(skills,candidateId,userRole.equals("candidate"));
 		if (jobsBySkills != null)
 			jobList.addAll(jobsBySkills);
 //		if (candidateId != null) {
