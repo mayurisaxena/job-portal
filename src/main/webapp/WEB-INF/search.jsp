@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en" class="no-js">
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <head>
 <meta charset="UTF-8">
 <title>ITJobsSG Landing Page | Freeze Theme</title>
@@ -51,8 +51,25 @@
 
 		</div>
 	</div>
+
 	<div id="header">
-		<jsp:include page="views/headerNobanner.jsp" />
+	<%
+		String myVariable = (String) session.getAttribute("userRole");
+		pageContext.setAttribute("myVariable", myVariable);
+	%>
+		<c:choose>
+			<c:when test="${myVariable eq 'candidate'}">
+				<jsp:include page="views/CandidateHeader.jsp" />
+			</c:when>
+			<c:when test="${myVariable eq 'employer'}">
+				<jsp:include page="views/CandidateHeader.jsp" />
+			</c:when>
+			<c:otherwise>
+				<jsp:include page="views/headerNobanner.jsp" />
+			</c:otherwise>
+		</c:choose>
+
+
 	</div>
 
 	<div class="wrapper-content">
@@ -60,15 +77,13 @@
 		<div class="container-fluid">
 			<div class="col-sm-8 col-sm-offset-2">
 				<div class="searchContainer">
-					<form action="/jobSearch.do" method="post">
-						<div class="input-group">
-							<input type="text" class="form-control"
-								placeholder="Job Title, Keywords" required> <span
-								class="input-group-btn">
-								<button type="submit" class="btn btn-danger">Search</button>
-							</span>
-						</div>
-					</form>
+					<div class="input-group">
+						<input type="text" class="form-control"
+							placeholder="Job Title, Keywords" name="skills" id="skills"
+							required> <span class="input-group-btn">
+							<button type="submit" class="btn btn-danger" id="searchSubmit">Search</button>
+						</span>
+					</div>
 				</div>
 			</div>
 
@@ -113,6 +128,7 @@
 		$(document).ready(function() {
 			appMaster.preLoader();
 			//TODO set the session.getAttribute("skills") to the input text
+			$("#skills").val("<%=session.getAttribute("skills")%>");
 			var getAllRequest = $.ajax({
 				url : "http://localhost:8080/jobSearch.do",
 				type : "POST",
@@ -120,6 +136,21 @@
 			});
 			getAllRequest.done(function(response) {
 				setSearchResult(response)
+			});
+			
+			$("#searchSubmit").click(function() {
+				var skill = $("#skills").val();
+				$.ajax({
+					url : "http://localhost:8080/jobSearch.do",
+					type : "POST",
+					data :  { 
+				        'skills': skill
+				      },
+					dataType : "json",
+					success: function (response) {
+						setSearchResult(response);
+				      }
+				});
 			});
 		});
 	</script>

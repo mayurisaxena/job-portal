@@ -61,10 +61,10 @@
 		<div class="container-fluid">
 			<div class="col-sm-8 col-sm-offset-2">
 				<div class="searchContainer">
-					<form action="/jobSearch.do" method="post">
+					<form action="/jobSearch.do" method="get">
 						<div class="input-group">
 							<input type="text" class="form-control"
-								placeholder="Job Title, Keywords" required> <span
+								placeholder="Job Title, Keywords" name="skills" required> <span
 								class="input-group-btn">
 								<button type="submit" class="btn btn-danger">Search</button>
 							</span>

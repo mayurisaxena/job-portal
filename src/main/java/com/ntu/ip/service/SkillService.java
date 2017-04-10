@@ -22,7 +22,7 @@ public class SkillService {
 			return null;
 		List<String> skillList = new ArrayList<String>();
 		for (String str:skills) {
-			skillList.add(str.trim());
+			skillList.add(str.toLowerCase().trim());
 		}
 		List<Skill> skillsOld = skillDao.getSkills(skillList);
 		if (skillsOld != null) {
@@ -32,7 +32,7 @@ public class SkillService {
 		}
 		for (String sk: skillList) {
 			Skill newSk = new Skill();
-			newSk.setSkillName(sk.trim());
+			newSk.setSkillName(sk.toLowerCase().trim());
 			save(newSk);
 		}
 		if (skillList != null && skillList.size()>0)

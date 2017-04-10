@@ -42,7 +42,7 @@
 	<div class="pre-loader">
 		<div class="overlay"></div>
 		<div class="load-con">
-			<img src="img/freeze/logo.png" class="animated fadeInDown" alt="">
+			<img src="img/freeze/logo.png" class="animated fadeInDown" alt="" href="home.do">
 
 			<div class="spinner">
 				<div class="bounce1"></div>

@@ -17,9 +17,9 @@
 					id="bs-example-navbar-collapse-1">
 
 					<ul class="nav navbar-nav navbar-right">
-						<li><a href="../home.jsp">Home</a></li>
-						<li><a href="WEB-INF/home.jsp">Log In</a></li>
-						<li><a href="WEB-INF/home.jsp">Sign Up</a></li>
+						<li><a href="home.do">Home</a></li>
+						<li><a href="home.do">Log In</a></li>
+						<li><a href="home.do">Sign Up</a></li>
 					</ul>
 				</div>
 				<!-- /.navbar-collapse -->
