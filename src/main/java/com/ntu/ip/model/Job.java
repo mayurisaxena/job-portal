@@ -31,7 +31,7 @@ public class Job {
 	@Column(name = "Description", columnDefinition = "VARCHAR(200)")
 	private String description;
 
-	@ManyToMany(fetch=FetchType.EAGER, cascade = CascadeType.ALL)
+	@ManyToMany(fetch=FetchType.EAGER, cascade = CascadeType.PERSIST)
 	@JoinTable(name = "Job_Skill", joinColumns = { @JoinColumn(name = "Job_Id") }, inverseJoinColumns = {
 			@JoinColumn(name = "Skill_Id") })
 	private Set<Skill> skills;

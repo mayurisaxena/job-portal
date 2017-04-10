@@ -18,26 +18,7 @@ public class JobDao extends AbstractDao<Job> {
 		String sql = "from Job jb inner join jb.skills sk where sk.skillName in (:skills)";
 		Query query = session.createQuery(sql);
 		query.setParameterList("skills", skills);
-		return getJobs(query, session);
-	}
-
-	@SuppressWarnings("unchecked")
-	private List<Job> getJobs(Query query, Session session) {
-		Transaction tx = null;
-		List<Job> jobList = null;
-		try {
-			tx = session.beginTransaction();
-			jobList = query.list();
-			tx.commit();
-		} catch (HibernateException e) {
-			if (tx != null)
-				tx.rollback();
-			e.printStackTrace();
-		} finally {
-			session.close();
-		}
-		return jobList;
-
+		return getList(query, session);
 	}
 
 	public List<Job> getJobsByCandidate(String candidateId) {
@@ -45,7 +26,7 @@ public class JobDao extends AbstractDao<Job> {
 		Session session = getNewSession();
 		Query query = session.createQuery(sql);
 		query.setParameter("canId", candidateId);
-		return getJobs(query, session);
+		return getList(query, session);
 	}
 	
 	public List<Job> getJobsByEmployer(String employerId) {
@@ -53,7 +34,7 @@ public class JobDao extends AbstractDao<Job> {
 		Session session = getNewSession();
 		Query query = session.createQuery(sql);
 		query.setParameter("empId", employerId);
-		return getJobs(query, session);
+		return getList(query, session);
 	}
 	
 	public List<Job> getLatestJobList(){
@@ -61,7 +42,7 @@ public class JobDao extends AbstractDao<Job> {
 		Session session = getNewSession();
 		Query query = session.createQuery(sql);
 		query.setMaxResults(50);
-		return getJobs(query, session);
+		return getList(query, session);
 	}
 	
 	public Job getJobById(int id){

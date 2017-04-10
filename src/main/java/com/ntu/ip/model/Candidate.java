@@ -1,7 +1,6 @@
 package com.ntu.ip.model;
 
 import java.util.Date;
-import java.util.List;
 import java.util.Set;
 
 import javax.persistence.AttributeOverride;
@@ -51,12 +50,12 @@ public class Candidate extends User {
 	@Column(name = "Qualification", columnDefinition = "VARCHAR(100)")
 	private String qualification;
 	
-	@ManyToMany(fetch=FetchType.EAGER, cascade = CascadeType.ALL)
+	@ManyToMany(fetch=FetchType.EAGER, cascade = {CascadeType.PERSIST})
 	@JoinTable(name = "Candidate_Skill", joinColumns = { @JoinColumn(name = "Candidate_Id") }, inverseJoinColumns = {
 			@JoinColumn(name = "Skill_Id") })
 	private Set<Skill> skills;
 	
-	@ManyToMany(fetch=FetchType.EAGER, cascade = CascadeType.ALL)
+	@ManyToMany(fetch=FetchType.EAGER, cascade = {CascadeType.ALL})
 	@JoinTable(name = "Candidate_Job", joinColumns = { @JoinColumn(name = "Candidate_Id") }, inverseJoinColumns = {
 			@JoinColumn(name = "Job_Id") })
 	private Set<Job> appliedJobs;

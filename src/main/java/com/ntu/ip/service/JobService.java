@@ -38,7 +38,7 @@ public class JobService {
 	}
 	
 	public Job getJobById(String id){
-		return jobDao.getJobById(Integer.parseInt(id));
+		return jobDao.getById(Integer.parseInt(id));
 	}
 
 }
