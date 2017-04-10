@@ -496,7 +496,7 @@ footer .rights a:hover {
 }
 section {
   position: relative;
-  padding-bottom: 90px;
+  padding-bottom: 30px;
 }
 /* Common style for pseudo-elements */
 section::before,

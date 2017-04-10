@@ -10,13 +10,40 @@
 <link
 	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
 	rel="stylesheet">
+<link rel="stylesheet" href="css/bootstrap.css">
+
+<link rel="stylesheet" href="css/animate.css">
+<link rel="stylesheet" href="css/font-awesome.min.css">
+<link rel="stylesheet" href="css/slick.css">
+<link rel="stylesheet" href="js/rs-plugin/css/settings.css">
+
+<link rel="stylesheet" href="css/freeze.css">
+<link rel="stylesheet" href="css/custom.css">
 <style type="text/css">
+.table-row {
+	display: table-row;
+}
+
+.left-panel {
+	float: right !important;
+	display: table-cell;
+}
+
+.right-panel {
+	float: left !important;
+	display: table-cell;
+}
 </style>
+<script type="text/javascript" src="js/modernizr.custom.32033.js"></script>
 <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 <script
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 </head>
 <body>
+<div id="header">
+		<jsp:include page="CandidateHeader.jsp" />
+	</div>
+	<div class="wrapper-content">
 	<div class="container">
 
 		<div id="signupbox" style="margin-top: 50px"
@@ -102,7 +129,7 @@
 			</div>
 		</div>
 	</div>
-
+</div>
 
 	</div>
 	<script type="text/javascript">

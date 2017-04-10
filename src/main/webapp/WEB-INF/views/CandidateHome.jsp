@@ -53,14 +53,56 @@
 		</div>
 	</div>
 	<div id="header">
-		<jsp:include page="header.jsp" />
+		<jsp:include page="CandidateHeader.jsp" />
 	</div>
 
-	<div class="wrapper">
-		<div id="footer">
-			<jsp:include page="footer.jsp" />
+	<div class="wrapper-content">
+
+		<div class="container-fluid">
+			<div class="col-sm-8 col-sm-offset-2">
+				<div class="searchContainer">
+					<form action="/jobSearch.do" method="post">
+						<div class="input-group">
+							<input type="text" class="form-control"
+								placeholder="Job Title, Keywords" required> <span
+								class="input-group-btn">
+								<button type="submit" class="btn btn-danger">Search</button>
+							</span>
+						</div>
+					</form>
+				</div>
+			</div>
+
+			<div id="searchResults" class="col-sm-8 col-sm-offset-2"></div>
+			<div class="col-sm-8 col-sm-offset-2">
+				<nav aria-label="Page navigation">
+					<ul id="pagination" class="pagination">
+					</ul>
+				</nav>
+			</div>
 		</div>
+		<footer>
+			<div class="overlay"></div>
+			<div class="container">
+				<a href="#" class="scrollpoint sp-effect3"> <img
+					src="img/freeze/logo.png" alt="" class="logo">
+				</a>
+				<div class="social">
+					<a href="#" class="scrollpoint sp-effect3"><i
+						class="fa fa-twitter fa-lg"></i></a> <a href="#"
+						class="scrollpoint sp-effect3"><i
+						class="fa fa-google-plus fa-lg"></i></a> <a href="#"
+						class="scrollpoint sp-effect3"><i class="fa fa-facebook fa-lg"></i></a>
+				</div>
+				<div class="rights">
+					<p>Copyright &copy; 2017</p>
+				</div>
+			</div>
+		</footer>
+
 	</div>
+
+	
 	<script src="js/jquery-1.11.1.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/slick.min.js"></script>

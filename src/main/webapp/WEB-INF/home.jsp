@@ -71,7 +71,7 @@
 		</section>
 		<section id="signup" class="doublediagonal">
 			<div class="container" style="padding: 15px;">
-				<div class="section-heading scrollpoint sp-effect3" style="size: 100%">
+				<div class="section-heading" style="size: 100%">
 					<h1>Sign Up</h1>
 					<div class="divider"></div>
 				</div>
@@ -87,7 +87,7 @@
 		<footer>
 			<div class="overlay"></div>
 			<div class="container">
-				<a href="#" class="scrollpoint sp-effect3"> <img
+				<a href="home.do" class="scrollpoint sp-effect3"> <img
 					src="img/freeze/logo.png" alt="" class="logo">
 				</a>
 				<div class="social">

@@ -39,7 +39,9 @@ public class LoginServlet extends HttpServlet {
 				request.getSession().setAttribute("userRole", "candidate");
 				request.getSession().setAttribute("userId", user.getId());
 				request.getSession().setAttribute("user", user);
-				response.sendRedirect("/candidateUpdate.do");
+				request.getRequestDispatcher("/WEB-INF/views/CandidateHome.jsp").forward(
+						request, response);
+				//response.sendRedirect("/candidateUpdate.do");
 			} else {
 				request.getSession().setAttribute("userRole", "employer");
 				request.getSession().setAttribute("userId", user.getId());
