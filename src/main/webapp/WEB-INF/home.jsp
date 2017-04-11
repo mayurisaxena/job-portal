@@ -119,15 +119,6 @@
 	<script>
 		$(document).ready(function() {
 			appMaster.preLoader();
-			
-// 			function(){
-<%-- 				var singupSucess = '<%=session.getAttribute("loginSucess")%>'; --%>
-// 				if(singupSucess!=''){
-// 					alert("Signup sucessfull please login using your username and password.");
-// 					 //$('.fetch_results').find('input:text').val(''); 
-// 				}
-					
-// 			}
 		});
 	</script>
 

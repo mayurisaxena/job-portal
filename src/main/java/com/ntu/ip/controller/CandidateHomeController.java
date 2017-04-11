@@ -13,6 +13,10 @@ import com.ntu.ip.service.CandidateService;
 @WebServlet(urlPatterns = "/candidateHome.do")
 public class CandidateHomeController extends HttpServlet {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8157627858596638743L;
 	private CandidateService candidateService = new CandidateService();
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)

@@ -10,5 +10,10 @@ public class EmployerService {
 	public void save(Employer employer){
 		employerDao.save(employer);
 	}
+	
+	public Employer getById(String ids){
+		int id = ids == null ? -1 : Integer.parseInt(ids);
+		return employerDao.getById(id);
+	}
 
 }

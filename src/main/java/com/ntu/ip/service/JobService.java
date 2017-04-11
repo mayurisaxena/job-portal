@@ -17,6 +17,7 @@ public class JobService {
 		int cid = candidateId.isEmpty() ? -1 : Integer.parseInt(candidateId);
 		List<String> skillsList = Arrays.asList(skills.split(","));
 		List<JobDto> jobDto = new ArrayList<>();
+		@SuppressWarnings("rawtypes")
 		List jobsBySkills = jobDao.getJobsBySkills(skillsList);
 		for (Object jobR : jobsBySkills) {
 			Object[] objr = (Object[]) jobR;
@@ -32,8 +33,19 @@ public class JobService {
 		return jobDao.getJobsByCandidate(candidateId);
 	}
 
-	public List<Job> getJobsByEmployer(String employerId) {
-		return jobDao.getJobsByEmployer(employerId);
+	public List<JobDto> getJobsByEmployer(String employerId) {
+		int empId = employerId == null ? -1 : Integer.parseInt(employerId);
+		List<JobDto> jobDto = new ArrayList<>();
+		@SuppressWarnings("rawtypes")
+		List jobsBySkills = jobDao.getJobsByEmployer(empId);
+		for (Object jobR : jobsBySkills) {
+			Object[] objr = (Object[]) jobR;
+			Job job = (Job) objr[0];
+			JobDto dtoJob = new JobDto(job);
+			dtoJob.setShowApply(false);
+			jobDto.add(dtoJob);
+		}
+		return jobDto;
 	}
 
 	public List<JobDto> getLatestJobs() {
@@ -43,6 +55,10 @@ public class JobService {
 
 	public Job getJobById(String id) {
 		return jobDao.getById(Integer.parseInt(id));
+	}
+	
+	public void save(Job job){
+		jobDao.save(job);
 	}
 
 }

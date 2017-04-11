@@ -64,21 +64,31 @@
 					<form action="/jobSearch.do" method="get">
 						<div class="input-group">
 							<input type="text" class="form-control"
-								placeholder="Job Title, Keywords" name="skills" required> <span
-								class="input-group-btn">
+								placeholder="Job Title, Keywords" name="skills" required>
+							<span class="input-group-btn">
 								<button type="submit" class="btn btn-danger">Search</button>
 							</span>
 						</div>
 					</form>
 				</div>
 			</div>
-
-			<div id="searchResults" class="col-sm-8 col-sm-offset-2"></div>
-			<div class="col-sm-8 col-sm-offset-2">
-				<nav aria-label="Page navigation">
-					<ul id="pagination" class="pagination">
-					</ul>
-				</nav>
+			<div class="container-fluid">
+				<div class="section-heading scrollpoint sp-effect3 col-sm-12" style="size: 100%">
+					<h1>Add Job</h1>
+					<div class="divider"></div>
+				</div>
+				<div id="Job_Add_Form" class="col-sm-6">
+					<jsp:include page="JobDescriptionAdding.jsp" />
+				</div>
+				<div id="result_section">
+					<div id="searchResults" class="col-sm-6"></div>
+					<div class="col-sm-6">
+						<nav aria-label="Page navigation">
+							<ul id="pagination" class="pagination">
+							</ul>
+						</nav>
+					</div>
+				</div>
 			</div>
 		</div>
 		<footer>
@@ -102,7 +112,7 @@
 
 	</div>
 
-	
+
 	<script src="js/jquery-1.11.1.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/slick.min.js"></script>
@@ -112,10 +122,23 @@
 	<script src="js/waypoints.min.js"></script>
 	<script src="js/scripts.js"></script>
 	<script src="js/basic.js"></script>
-
+	<script src="js/app.js"></script>
 	<script>
 		$(document).ready(function() {
 			appMaster.preLoader();
+			var getAllRequest = $.ajax({
+				url : "http://localhost:8080//empJobSearch.do",
+				type : "POST",
+				dataType : "json"
+			});
+			getAllRequest.done(function(response) {
+				setSearchResult(response)
+			});
+			
+			$("#searchSubmit").click(function() {
+				searchJobsForSkilles();
+			});
+
 		});
 	</script>
 

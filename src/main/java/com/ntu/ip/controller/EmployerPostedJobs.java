@@ -12,8 +12,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.ntu.ip.model.Job;
+import com.ntu.ip.dto.JobDto;
 import com.ntu.ip.service.JobService;
+import com.ntu.ip.util.Constants;
 
 @WebServlet(urlPatterns = "/empJobSearch.do")
 public class EmployerPostedJobs extends HttpServlet {
@@ -26,18 +27,20 @@ public class EmployerPostedJobs extends HttpServlet {
 	 * 
 	 */
 	private JobService jobService = new JobService();
-	
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String employeeId = request.getAttribute("employeeId").toString();
-		List<Job> jobList = new ArrayList<>();
-		List<Job> jobsBySkills = jobService.getJobsByEmployer(employeeId);
-		if (jobsBySkills != null)
-			jobList.addAll(jobsBySkills);
+		Object empIdAttri = request.getSession().getAttribute("userId");
+		String employeeId = empIdAttri == null ? "" : empIdAttri.toString();
+		List<JobDto> jobList = new ArrayList<>();
+		List<JobDto> jobsByEmp = jobService.getJobsByEmployer(employeeId);
+		if (jobsByEmp != null)
+			jobList.addAll(jobsByEmp);
 
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		String jsonArray = gson.toJson(jobList);
-		jsonArray = "{\"page\":1,\"total\":\"2\",\"records\":" + jobList.size() + ",\"rows\":" + jsonArray + "}";
+		int total = (int) ((jobList.size() / Constants.MAX_ROWS_PER_PAGE) + 0.5);
+		jsonArray = "{\"page\":1,\"total\":\""+total+"\",\"records\":" + jobList.size() + ",\"rows\":" + jsonArray + "}";
 
 		response.getWriter().print(jsonArray);
 	}

@@ -2,7 +2,9 @@ package com.ntu.ip.service;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import com.ntu.ip.dao.JobDao;
 import com.ntu.ip.dao.SkillDao;
@@ -38,5 +40,9 @@ public class SkillService {
 		if (skillList != null && skillList.size()>0)
 			skillsOld.addAll(skillDao.getSkills(skillList));
 		return skillsOld;
+	}
+	
+	public Set<Skill> getAndAddNewSkillSet(String[] skills){
+		return new HashSet<>(getAndAddNewSkills(skills));
 	}
 }

@@ -16,9 +16,7 @@ import com.google.gson.GsonBuilder;
 import com.ntu.ip.dto.JobDto;
 import com.ntu.ip.model.Candidate;
 import com.ntu.ip.model.Job;
-import com.ntu.ip.model.Skill;
 import com.ntu.ip.service.CandidateService;
-import com.ntu.ip.service.JobService;
 
 @WebServlet(urlPatterns = "/canApplications.do")
 public class CanidateAppliedJobs extends HttpServlet {
@@ -30,7 +28,6 @@ public class CanidateAppliedJobs extends HttpServlet {
 	/**
 	 * 
 	 */
-	private JobService jobService = new JobService();
 	private CandidateService candidateService = new CandidateService();
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)

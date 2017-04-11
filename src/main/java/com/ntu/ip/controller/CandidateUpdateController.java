@@ -5,8 +5,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import javassist.expr.Instanceof;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -15,7 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.ntu.ip.model.Candidate;
 import com.ntu.ip.model.Skill;
-import com.ntu.ip.model.User;
 import com.ntu.ip.service.CandidateService;
 import com.ntu.ip.service.SkillService;
 
@@ -56,8 +53,6 @@ public class CandidateUpdateController extends HttpServlet {
 		List<Skill> skillList = skillService.getAndAddNewSkills(skillStr);
 		Set<Skill> skillSet = new HashSet<>(skillList);
 		candidate.setSkills(skillSet);
-		//TODO  add description
-		//candidate.setDescription(request.getParameter("description"));
 		candidate.setRole(CANDIDATE);
 		candidateService.save(candidate);
 		request.getRequestDispatcher("/WEB-INF/views/CandidateHome.jsp").forward(request, response);

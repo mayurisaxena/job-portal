@@ -7,7 +7,6 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-import com.ntu.ip.model.Job;
 import com.ntu.ip.model.Skill;
 
 public class SkillDao extends AbstractDao<Skill> {

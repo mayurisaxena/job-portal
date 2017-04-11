@@ -29,7 +29,7 @@ public class JobDao extends AbstractDao<Job> {
 		return getList(query, session);
 	}
 	
-	public List<Job> getJobsByEmployer(String employerId) {
+	public List<Job> getJobsByEmployer(int employerId) {
 		String sql = "from Job jb inner join jb.employer emp where emp.id = (:empId)";
 		Session session = getNewSession();
 		Query query = session.createQuery(sql);

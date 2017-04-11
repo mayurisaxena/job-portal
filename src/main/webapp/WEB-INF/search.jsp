@@ -140,18 +140,6 @@
 			
 			$("#searchSubmit").click(function() {
 				searchJobsForSkilles();
-// 				var skill = $("#skills").val();
-// 				$.ajax({
-// 					url : "http://localhost:8080/jobSearch.do",
-// 					type : "POST",
-// 					data :  { 
-// 				        'skills': skill
-// 				      },
-// 					dataType : "json",
-// 					success: function (response) {
-// 						setSearchResult(response);
-// 				      }
-// 				});
 			});
 			
 		});
