@@ -8,9 +8,6 @@
 		<form method="post" action="/JobAdd.do">
 			<input type='hidden' name='csrfmiddlewaretoken'
 				value='XFe2rTYl9WOpV8U6X5CfbIuOZOELJ97S' />
-
-
-			<form class="form-horizontal" method="post">
 				<input type='hidden' name='csrfmiddlewaretoken'
 					value='XFe2rTYl9WOpV8U6X5CfbIuOZOELJ97S' />
 
@@ -65,8 +62,6 @@
 				</div>
 
 			</form>
-
-		</form>
 	</div>
 </div>
 <script type="text/javascript">

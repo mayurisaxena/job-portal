@@ -63,7 +63,7 @@
 			<div class="col-sm-8 col-sm-offset-2">
 				<div class="searchContainer">
 					<div class="input-group">
-						<input type="text" class="form-control"
+						<input type="text" class="form-control" style="height: 44px"
 							placeholder="Job Title, Keywords" name="skills" id="skills" required> 
 							<span class="input-group-btn">
 								<button type="submit" class="btn btn-danger" id="canSearchSubmit">Search</button>
