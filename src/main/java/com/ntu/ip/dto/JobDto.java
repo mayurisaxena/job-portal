@@ -1,9 +1,12 @@
 package com.ntu.ip.dto;
 
 import java.text.SimpleDateFormat;
+import java.util.HashSet;
+import java.util.Set;
 
 import com.ntu.ip.model.Employer;
 import com.ntu.ip.model.Job;
+import com.ntu.ip.model.Skill;
 
 public class JobDto {
 
@@ -69,7 +72,12 @@ public class JobDto {
 		this.jobId = job.getId();
 		this.title = job.getTitle();
 		this.description = job.getDescription();
-		this.skills = job.getSkills().stream().map(e -> e.getSkillName() + ",").reduce("", String::concat);
+		Set<String> skillset = new HashSet<>();
+		Set<Skill> skills = job.getSkills();
+		for (Skill skill : skills) {
+			skillset.add(skill.getSkillName().toUpperCase());
+		}
+		this.skills = skillset.stream().map(e -> e + ", ").reduce("", String::concat);
 		this.postedDate = dateFormat.format(job.getPostedDate());
 		Employer employer = job.getEmployer();
 		this.employer = employer == null ? "" : employer.getAlias();

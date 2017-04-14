@@ -61,20 +61,26 @@
 		<div class="container-fluid">
 			<div class="col-sm-8 col-sm-offset-2">
 				<div class="searchContainer">
-					<form action="/CandidateSearch.do" method="get">
-						<div class="input-group">
-							<input type="text" class="form-control"
-								placeholder="Candidate Skills, Keywords" name="skills" required>
+					<div class="input-group">
+						<input type="text" class="form-control"
+							placeholder="Job Title, Keywords" name="skills" id="skills" required> 
 							<span class="input-group-btn">
-								<button type="submit" class="btn btn-danger">Search</button>
+								<button type="submit" class="btn btn-danger" id="canSearchSubmit">Search</button>
 							</span>
-						</div>
-					</form>
+					</div>
 				</div>
 			</div>
-			<div id="candSearchResults" class="col-sm-8 col-sm-offset-2"></div>
 			<div class="container-fluid">
-				<div class="section-heading scrollpoint sp-effect3 col-sm-12" style="size: 100%">
+				<div class="section-heading scrollpoint sp-effect3 col-sm-12"
+					style="size: 100%">
+					<h1>Candidates</h1>
+					<div class="divider"></div>
+				</div>
+				<div id="candSearchResults" class="col-sm-8 col-sm-offset-2"></div>
+			</div>
+			<div class="container-fluid">
+				<div class="section-heading scrollpoint sp-effect3 col-sm-12"
+					style="size: 100%">
 					<h1>Add Job</h1>
 					<div class="divider"></div>
 				</div>
@@ -128,15 +134,15 @@
 		$(document).ready(function() {
 			appMaster.preLoader();
 			var getAllRequest = $.ajax({
-				url : "http://localhost:8080//empJobSearch.do",
+				url : "http://localhost:8080/empJobSearch.do",
 				type : "POST",
 				dataType : "json"
 			});
 			getAllRequest.done(function(response) {
 				setSearchResult(response)
 			});
-			
-			$("#searchSubmit").click(function() {
+
+			$("#canSearchSubmit").click(function() {
 				searchCandidateForSkilles("#candSearchResults");
 			});
 

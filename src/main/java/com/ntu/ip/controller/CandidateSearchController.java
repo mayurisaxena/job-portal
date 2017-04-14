@@ -23,9 +23,10 @@ public class CandidateSearchController extends HttpServlet {
 	 * 
 	 */
 	private static final long serialVersionUID = -3032196866960519955L;
+	
 
 	private CandidateService candidateService = new CandidateService();
-
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String skills = (String) request.getSession().getAttribute("skills");
@@ -42,13 +43,10 @@ public class CandidateSearchController extends HttpServlet {
 			int total = (int) ((candidateList.size() / Constants.MAX_ROWS_PER_PAGE) + 0.5);
 			jsonArray = "{\"page\":1,\"total\":\"" + total + "\",\"records\":" + candidateList.size() + ",\"rows\":"
 					+ jsonArray + "}";
-			response.setContentType("application/json");
-			response.setCharacterEncoding("UTF-8");
 			response.getWriter().print(jsonArray);
 		} else {
-
+			
 		}
-		request.getRequestDispatcher("/WEB-INF/views/EmployerHome.jsp").forward(request, response);
 	}
 
 }

@@ -19,7 +19,7 @@ import com.ntu.ip.service.JobService;
 @WebServlet(urlPatterns = "/jobSearch.do")
 public class JobSearchController extends HttpServlet {
 
-	private static final String SKILLS2 = "skills";
+	private static final String SKILLS = "skills";
 	/**
 	 * 
 	 */
@@ -30,7 +30,7 @@ public class JobSearchController extends HttpServlet {
 			HttpServletResponse response) throws ServletException, IOException {
 		
 		HttpSession session = request.getSession();
-		session.setAttribute(SKILLS2, request.getParameter(SKILLS2));
+		session.setAttribute(SKILLS, request.getParameter(SKILLS));
 		request.getRequestDispatcher("/WEB-INF/search.jsp").forward(
 				request, response);
 		

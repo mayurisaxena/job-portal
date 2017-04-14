@@ -12,8 +12,6 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
 
-import com.ntu.ip.model.Job;
-
 public class AbstractDao<T> {
 
 	private SessionFactory sessionFactory;

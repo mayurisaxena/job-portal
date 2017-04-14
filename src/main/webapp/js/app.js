@@ -132,7 +132,7 @@ function setCandidateSearchResult(jsonResult,component){
 							});
 							listHeading
 									.append('<h4 class="list-group-item-heading">'
-											+ currentItem.title + '</h4>');
+											+ currentItem.displayName + '</h4>');
 							if (currentItem.showApply) {
 								listHeading
 										.append('<button class="btn btn-primary apply-button">Apply</button>')
@@ -141,8 +141,6 @@ function setCandidateSearchResult(jsonResult,component){
 							var listContent = $("<div>", {
 								"class" : "list-content"
 							});
-							listContent.append('<p class="sub-header">'
-									+ currentItem.displayName + '</p>');
 							listContent.append('<p>Keyskills:'
 									+ currentItem.skills + '</p>');
 							listContent.append('<p>Education :'

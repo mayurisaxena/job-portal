@@ -27,10 +27,9 @@ public class CandidateService {
 	public List<CandidateDto> getCandidatesBySkill(String skills){
 		List<String> skillsList = Arrays.asList(skills.split(","));
 		List<CandidateDto> candidateDto = new ArrayList<>();
-		List canBySkills = candidateDao.getCandidatesBySkills(skillsList);
-		for (Object can : canBySkills) {
-			Object[] objr = (Object[]) can;
-			candidateDto.add(new CandidateDto((Candidate) objr[0]));
+		List<Candidate> canBySkills = candidateDao.getCandidatesBySkills(skillsList);
+		for (Candidate can : canBySkills) {
+			candidateDto.add(new CandidateDto(can));
 		}
 		return candidateDto;
 	}

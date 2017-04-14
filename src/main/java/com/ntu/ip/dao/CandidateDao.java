@@ -35,7 +35,8 @@ public class CandidateDao extends AbstractDao<Candidate>{
 	
 	public List<Candidate> getCandidatesBySkills(List<String> skills){
 		Session session = getNewSession();
-		String sql = "from Candidate cd inner join cd.skills sk where sk.skillName in (:skills)";
+		String sql = "select distinct cd from Candidate cd inner join cd.skills sk where sk.skillName in (:skills)";
+		
 		Query query = session.createQuery(sql);
 		query.setParameterList("skills", skills);
 		return getList(query, session);

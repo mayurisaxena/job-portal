@@ -1,22 +1,31 @@
 package com.ntu.ip.dto;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import com.ntu.ip.model.Candidate;
+import com.ntu.ip.model.Skill;
 
 public class CandidateDto {
-	
+
 	private int id;
-	
+
 	private String skills;
-	
+
 	private String education;
-	
+
 	private String contactNo;
 
 	private String displayName;
 
 	public CandidateDto(Candidate can) {
 		this.id = can.getId();
-		this.skills = can.getSkills().stream().map(e->e.getSkillName()).reduce("", String::concat);
+		Set<String> skillset = new HashSet<>();
+		Set<Skill> skills = can.getSkills();
+		for (Skill skill : skills) {
+			skillset.add(skill.getSkillName().toUpperCase());
+		}
+		this.skills = skillset.stream().map(e -> e + ", ").reduce("", String::concat);
 		this.education = can.getQualification();
 		this.contactNo = can.getContactNo();
 		this.displayName = can.getFirstName();
@@ -61,7 +70,5 @@ public class CandidateDto {
 	public void setDisplayName(String displayName) {
 		this.displayName = displayName;
 	}
-	
-	
 
 }
