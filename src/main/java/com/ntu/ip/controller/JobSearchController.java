@@ -36,7 +36,6 @@ public class JobSearchController extends HttpServlet {
 		
 	}
 
-
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		Object userIdAtt = request.getSession().getAttribute("userId");

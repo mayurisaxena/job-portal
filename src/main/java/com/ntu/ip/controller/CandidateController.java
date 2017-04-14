@@ -37,8 +37,6 @@ public class CandidateController extends HttpServlet {
 		candidate.setAddress(request.getParameter("Address"));
 		candidate.setContactNo(request.getParameter("number"));
 		candidate.setQualification(request.getParameter("qualification"));
-		//TODO  add description
-		//candidate.setDescription(request.getParameter("description"));
 		candidate.setRole(CANDIDATE);
 		candidateService.save(candidate);
 		response.setStatus(1);

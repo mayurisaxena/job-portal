@@ -36,7 +36,7 @@ public class JobAddController extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
+
 		Job job = new Job();
 		job.setDescription(request.getParameter("jobdesc"));
 		job.setPostedDate(new Date());
@@ -50,7 +50,7 @@ public class JobAddController extends HttpServlet {
 		job.setEmployer(employer);
 		jobService.save(job);
 		response.setStatus(1);
-
+		request.getRequestDispatcher("/WEB-INF/views/EmployerHome.jsp").forward(request, response);
 	}
 
 }

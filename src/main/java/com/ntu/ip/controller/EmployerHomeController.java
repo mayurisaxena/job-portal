@@ -8,17 +8,16 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(urlPatterns = "/candidateHome.do")
-public class CandidateHomeController extends HttpServlet {
+@WebServlet(urlPatterns = "/Employerhome.do")
+public class EmployerHomeController extends HttpServlet {
 	
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -8157627858596638743L;
+	private static final long serialVersionUID = 33518204110182032L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		request.getRequestDispatcher("/WEB-INF/views/CandidateHome.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/views/EmployerHome.jsp").forward(request, response);
 	}
-	
 }
