@@ -128,16 +128,16 @@
 		$(document).ready(function() {
 			appMaster.preLoader();
 			var getAllRequest = $.ajax({
-				url : "http://localhost:8080//cadidateSearch.do",
+				url : "http://localhost:8080//empJobSearch.do",
 				type : "POST",
 				dataType : "json"
 			});
 			getAllRequest.done(function(response) {
-				setCandidateSearchResult(response)
+				setSearchResult(response)
 			});
 			
 			$("#searchSubmit").click(function() {
-				searchCandidateForSkilles();
+				searchCandidateForSkilles("#candSearchResults");
 			});
 
 		});

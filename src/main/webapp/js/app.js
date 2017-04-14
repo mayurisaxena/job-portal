@@ -96,8 +96,19 @@ function searchJobsForSkilles() {
 	});
 }
 
-function searchCandidateForSkilles(){
-	
+function searchCandidateForSkilles(component){
+	var skill = $("#skills").val();
+	$.ajax({
+		url : "http://localhost:8080/CandidateSearch.do",
+		type : "POST",
+		data : {
+			'skills' : skill
+		},
+		dataType : "json",
+		success : function(response) {
+			setCandidateSearchResult(response,component);
+		}
+	});
 }
 
 function setCandidateSearchResult(jsonResult,component){

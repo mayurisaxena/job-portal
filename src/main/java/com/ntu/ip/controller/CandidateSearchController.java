@@ -48,7 +48,7 @@ public class CandidateSearchController extends HttpServlet {
 		} else {
 
 		}
-
+		request.getRequestDispatcher("/WEB-INF/views/EmployerHome.jsp").forward(request, response);
 	}
 
 }
