@@ -39,7 +39,7 @@ public class CandidateController extends HttpServlet {
 		candidate.setQualification(request.getParameter("qualification"));
 		candidate.setRole(CANDIDATE);
 		candidateService.save(candidate);
-		response.setStatus(1);
+		request.getRequestDispatcher("/WEB-INF/home.jsp").forward(request, response);
 	}
 
 }

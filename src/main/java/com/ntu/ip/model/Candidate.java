@@ -1,6 +1,5 @@
 package com.ntu.ip.model;
 
-import java.util.Date;
 import java.util.Set;
 
 import javax.persistence.AttributeOverride;
@@ -26,17 +25,11 @@ public class Candidate extends User {
 	@Column(name = "lastName", columnDefinition = "VARCHAR(50)")
 	private String lastName;
 
-	@Column(name = "dob", columnDefinition = "DATE")
-	private Date dob;
-	
 	@Column(name = "FirstName", columnDefinition = "VARCHAR(50)")
 	private String firstName;
 
 	@Column(name = "Address", columnDefinition = "VARCHAR(300)")
 	private String address;
-
-	@Column(name = "HEQ", columnDefinition = "VARCHAR(100)")
-	private String heq;
 
 	@Column(name = "CurrentLocation", columnDefinition = "VARCHAR(100)")
 	private String currentLocation;
@@ -81,28 +74,12 @@ public class Candidate extends User {
 		this.lastName = lastName;
 	}
 
-	public Date getDob() {
-		return dob;
-	}
-
-	public void setDob(Date dob) {
-		this.dob = dob;
-	}
-
 	public String getAddress() {
 		return address;
 	}
 
 	public void setAddress(String address) {
 		this.address = address;
-	}
-
-	public String getHeq() {
-		return heq;
-	}
-
-	public void setHeq(String heq) {
-		this.heq = heq;
 	}
 
 	public String getCurrentLocation() {

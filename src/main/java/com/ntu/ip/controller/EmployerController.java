@@ -39,7 +39,6 @@ public class EmployerController extends HttpServlet {
 		employer.setContactNo(request.getParameter("number"));
 		employer.setAddress(request.getParameter("Address"));
 		employerService.save(employer);
-		response.setStatus(1);
 		request.getRequestDispatcher("/WEB-INF/home.jsp").forward(request, response);
 
 	}
