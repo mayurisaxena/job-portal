@@ -10,9 +10,6 @@
 		<form method="post" action="/candidateAdd.do">
 			<input type='hidden' name='csrfmiddlewaretoken'
 				value='XFe2rTYl9WOpV8U6X5CfbIuOZOELJ97S' />
-
-
-			<form class="form-horizontal" method="post">
 				<input type='hidden' name='csrfmiddlewaretoken'
 					value='XFe2rTYl9WOpV8U6X5CfbIuOZOELJ97S' />
 				<div id="div_id_firstname" class="form-group required">
@@ -104,9 +101,6 @@
 							class="btn btn-primary btn btn-info requiredSubmitCandidate" id="submit-id-signup" />
 					</div>
 				</div>
-
-			</form>
-
 		</form>
 	</div>
 </div>

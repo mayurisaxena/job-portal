@@ -23,10 +23,8 @@
 					<li><a href="logout.do">Logout</a></li>
 				</ul>
 			</div>
-				<!-- /.navbar-collapse -->
 		</div>
 	
-		<!-- /.container-->
 	</nav>
 
 </header>

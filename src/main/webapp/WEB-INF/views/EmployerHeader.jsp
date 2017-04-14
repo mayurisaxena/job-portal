@@ -19,8 +19,6 @@
 
 				<ul class="nav navbar-nav navbar-right">
 					<li><a href="Employerhome.do">Home</a></li>
-					<li><a href="CandidateSearch.do">Candidate Search</a></li>
-					<!-- 					<li><a href="canApplications.do">View Applications</a></li> -->
 					<li><a href="logout.do">Logout</a></li>
 				</ul>
 			</div>

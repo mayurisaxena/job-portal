@@ -19,6 +19,7 @@
 
 <link rel="stylesheet" href="css/freeze.css">
 <link rel="stylesheet" href="css/custom.css">
+
 <style type="text/css">
 .table-row {
 	display: table-row;
@@ -81,7 +82,7 @@
 			<div class="container-fluid">
 				<div class="section-heading scrollpoint sp-effect3 col-sm-12"
 					style="size: 100%">
-					<h1>Add Job</h1>
+					<h1>Jobs Section</h1>
 					<div class="divider"></div>
 				</div>
 				<div id="Job_Add_Form" class="col-sm-6">
