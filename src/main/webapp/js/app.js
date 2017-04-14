@@ -96,6 +96,59 @@ function searchJobsForSkilles() {
 	});
 }
 
+function searchCandidateForSkilles(){
+	
+}
+
+function setCandidateSearchResult(jsonResult,component){
+	var searchResults = jsonResult;
+
+	var searchResultContainer = $(component);
+	searchResultContainer.empty();
+	if (searchResults) {
+
+		$
+				.each(
+						searchResults.rows,
+						function(i, item) {
+							var currentItem = item;
+							var listItem = $("<div>", {
+								id : item.jobId,
+								"class" : "list-group"
+							});
+							var listHeading = $("<div>", {
+								"class" : "list-heading"
+							});
+							listHeading
+									.append('<h4 class="list-group-item-heading">'
+											+ currentItem.title + '</h4>');
+							if (currentItem.showApply) {
+								listHeading
+										.append('<button class="btn btn-primary apply-button">Apply</button>')
+							}
+
+							var listContent = $("<div>", {
+								"class" : "list-content"
+							});
+							listContent.append('<p class="sub-header">'
+									+ currentItem.displayName + '</p>');
+							listContent.append('<p>Keyskills:'
+									+ currentItem.skills + '</p>');
+							listContent.append('<p>Education :'
+									+ currentItem.education + '</p>');
+							listContent.append('<p>Contact No :'
+									+ currentItem.contactNo + '</p>');
+
+							listItem.append(listHeading);
+							listItem.append(listContent);
+							searchResultContainer.append(listItem);
+
+						});
+
+		setPagination(searchResults.total, searchResults.page);
+	}
+}
+
 $(document).on('click', '.apply-button', function() {
 	var job = $(this).closest(".list-group").attr('id');
 	console.log(job);
@@ -113,3 +166,5 @@ $(document).on('click', '.apply-button', function() {
 
 	});
 });
+
+

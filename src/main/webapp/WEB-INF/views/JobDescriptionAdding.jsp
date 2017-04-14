@@ -19,7 +19,7 @@
 						class="control-label col-md-4  requiredField">Job Title<span
 						class="asteriskField">*</span>
 					</label>
-					<div class="controls col-md-8 ">
+					<div class="controls col-lg-12">
 						<input class="input-md textinput textInput form-control"
 							id="id_jobtitle" name="jobtitle"
 							placeholder="Enter the Job Title" style="margin-bottom: 10px"
@@ -50,7 +50,7 @@
 					<div class="controls col-lg-12 row-lg-12">
 						<textarea class="input-md textinput textInput form-control"
 							id="id_jobskills" name="jobskills"
-							placeholder="Enter the Job Skills with comma seperated"
+							placeholder="Enter the Job Skills with comma separated"
 							style="margin-bottom: 20px" type="text" rows="5"></textarea>
 					</div>
 					<div class="controls col-md-10 col-lg-12"></div>

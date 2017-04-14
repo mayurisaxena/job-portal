@@ -116,6 +116,19 @@
 	<script>
 		$(document).ready(function() {
 			appMaster.preLoader();
+			$("#skills").val("<%=session.getAttribute("skills")%>");
+			var getAllRequest = $.ajax({
+				url : "http://localhost:8080/CandidateSearch.do",
+				type : "POST",
+				dataType : "json"
+			});
+			getAllRequest.done(function(response) {
+				setCandidateSearchResult(response)
+			});
+			
+			$("#searchSubmit").click(function() {
+				searchJobsForSkilles();
+			});
 		});
 	</script>
 

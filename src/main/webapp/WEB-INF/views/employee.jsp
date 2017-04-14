@@ -8,7 +8,7 @@
 		</div>
 	</div>
 	<div class="panel-body">
-		<form method="post" action="/employeeAdd.do">
+		<form method="post" action="/employerAdd.do">
 			<input type='hidden' name='csrfmiddlewaretoken'
 				value='XFe2rTYl9WOpV8U6X5CfbIuOZOELJ97S' />
 

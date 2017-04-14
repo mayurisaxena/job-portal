@@ -12,11 +12,14 @@ public class CandidateDto {
 	
 	private String contactNo;
 
+	private String displayName;
+
 	public CandidateDto(Candidate can) {
 		this.id = can.getId();
 		this.skills = can.getSkills().stream().map(e->e.getSkillName()).reduce("", String::concat);
 		this.education = can.getQualification();
 		this.contactNo = can.getContactNo();
+		this.displayName = can.getFirstName();
 	}
 
 	public int getId() {
@@ -49,6 +52,14 @@ public class CandidateDto {
 
 	public void setContactNo(String contactNo) {
 		this.contactNo = contactNo;
+	}
+
+	public String getDisplayName() {
+		return displayName;
+	}
+
+	public void setDisplayName(String displayName) {
+		this.displayName = displayName;
 	}
 	
 	

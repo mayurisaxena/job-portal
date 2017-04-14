@@ -53,7 +53,7 @@
 		</div>
 	</div>
 	<div id="header">
-		<jsp:include page="CandidateHeader.jsp" />
+		<jsp:include page="EmployerHeader.jsp" />
 	</div>
 
 	<div class="wrapper-content">
@@ -61,10 +61,10 @@
 		<div class="container-fluid">
 			<div class="col-sm-8 col-sm-offset-2">
 				<div class="searchContainer">
-					<form action="/jobSearch.do" method="get">
+					<form action="/CandidateSearch.do" method="get">
 						<div class="input-group">
 							<input type="text" class="form-control"
-								placeholder="Job Title, Keywords" name="skills" required>
+								placeholder="Candidate Skills, Keywords" name="skills" required>
 							<span class="input-group-btn">
 								<button type="submit" class="btn btn-danger">Search</button>
 							</span>
@@ -72,6 +72,7 @@
 					</form>
 				</div>
 			</div>
+			<div id="candSearchResults" class="col-sm-8 col-sm-offset-2"></div>
 			<div class="container-fluid">
 				<div class="section-heading scrollpoint sp-effect3 col-sm-12" style="size: 100%">
 					<h1>Add Job</h1>
@@ -127,16 +128,16 @@
 		$(document).ready(function() {
 			appMaster.preLoader();
 			var getAllRequest = $.ajax({
-				url : "http://localhost:8080//empJobSearch.do",
+				url : "http://localhost:8080//cadidateSearch.do",
 				type : "POST",
 				dataType : "json"
 			});
 			getAllRequest.done(function(response) {
-				setSearchResult(response)
+				setCandidateSearchResult(response)
 			});
 			
 			$("#searchSubmit").click(function() {
-				searchJobsForSkilles();
+				searchCandidateForSkilles();
 			});
 
 		});

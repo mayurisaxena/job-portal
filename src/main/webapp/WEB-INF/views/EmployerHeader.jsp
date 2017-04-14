@@ -18,8 +18,8 @@
 				id="bs-example-navbar-collapse-1">
 
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="EmployerHome.do">Candidate Search</a></li>
-					<li><a href="EmployerUpdate.do">Update Profile</a></li>
+					<li><a href="Employerhome.do">Home</a></li>
+					<li><a href="CandidateSearch.do">Candidate Search</a></li>
 					<!-- 					<li><a href="canApplications.do">View Applications</a></li> -->
 					<li><a href="logout.do">Logout</a></li>
 				</ul>

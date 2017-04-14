@@ -70,7 +70,7 @@
 									class="control-label col-md-4  requiredField"> Full
 									Name<span class="asteriskField">*</span>
 								</label>
-								<div class="controls col-md-8 ">
+								<div class="controls col-lg-12">
 									<input class="input-md  textinput textInput form-control"
 										id="id_aliasname" maxlength="30" name="firstname"
 										placeholder="Enter Your Full Name" value="${firstname}"
@@ -82,7 +82,7 @@
 								<label for="id_jobtitle"
 									class="control-label col-md-4  requiredField">Highest Educational Qualification<span class="asteriskField">*</span>
 								</label>
-								<div class="controls col-md-8 ">
+								<div class="controls col-lg-12">
 									<input class="input-md textinput textInput form-control"
 										id="id_jobtitle" name="qualification" value="${qualification}" placeholder="Enter the Highest Educational Qualification"
 										style="margin-bottom: 10px" type="text" />

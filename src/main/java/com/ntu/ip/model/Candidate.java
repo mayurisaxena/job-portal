@@ -32,9 +32,6 @@ public class Candidate extends User {
 	@Column(name = "FirstName", columnDefinition = "VARCHAR(50)")
 	private String firstName;
 
-	@Column(name = "ContactNumber", columnDefinition = "VARCHAR(50)")
-	private String contactNumber;
-
 	@Column(name = "Address", columnDefinition = "VARCHAR(300)")
 	private String address;
 
@@ -90,14 +87,6 @@ public class Candidate extends User {
 
 	public void setDob(Date dob) {
 		this.dob = dob;
-	}
-
-	public String getContactNumber() {
-		return contactNumber;
-	}
-
-	public void setContactNumber(String contactNumber) {
-		this.contactNumber = contactNumber;
 	}
 
 	public String getAddress() {

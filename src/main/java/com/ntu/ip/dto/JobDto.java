@@ -2,6 +2,7 @@ package com.ntu.ip.dto;
 
 import java.text.SimpleDateFormat;
 
+import com.ntu.ip.model.Employer;
 import com.ntu.ip.model.Job;
 
 public class JobDto {
@@ -13,8 +14,7 @@ public class JobDto {
 	private String postedDate;
 	private String employer;
 	private boolean showApply = false;
-	
-	
+
 	public boolean isShowApply() {
 		return showApply;
 	}
@@ -64,14 +64,15 @@ public class JobDto {
 	public void setEmployer(String employer) {
 		this.employer = employer;
 	}
-	
+
 	public JobDto(Job job) {
 		this.jobId = job.getId();
 		this.title = job.getTitle();
 		this.description = job.getDescription();
-		this.skills = job.getSkills().stream().map(e->e.getSkillName()).reduce("", String::concat);
+		this.skills = job.getSkills().stream().map(e -> e.getSkillName() + ",").reduce("", String::concat);
 		this.postedDate = dateFormat.format(job.getPostedDate());
-		this.employer = job.getEmployer().getAlias();
+		Employer employer = job.getEmployer();
+		this.employer = employer == null ? "" : employer.getAlias();
 	}
 
 	public int getJobId() {

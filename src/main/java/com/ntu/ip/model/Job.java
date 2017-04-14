@@ -28,7 +28,7 @@ public class Job {
 	@Column(name = "Job_Title", columnDefinition = "VARCHAR(100)")
 	private String title;
 
-	@Column(name = "Description", columnDefinition = "VARCHAR(200)")
+	@Column(name = "Description", columnDefinition = "VARCHAR(1500)")
 	private String description;
 
 	@ManyToMany(fetch=FetchType.EAGER, cascade = CascadeType.PERSIST)
