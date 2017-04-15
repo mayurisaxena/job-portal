@@ -137,7 +137,7 @@
 			getAllRequest.done(function(response) {
 				setSearchResult(response)
 			});
-			setSearchResult(response);
+			//setSearchResult(response);
 			
 			$("#searchSubmit").click(function() {
 				searchJobsForSkilles();
